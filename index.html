@@ -8,45 +8,9 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="icon" href="public/assets/madre_logo.png" />
+  <link rel="stylesheet" href="index.css">
   <style>
-    
-  /* Government logos scrolling animation */
-  .animate-scroll-vertical {
-    animation: scroll-vertical 15s linear infinite;
-  }
-
-  @keyframes scroll-vertical {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(-50%);
-    }
-  }
-
-  /* Pause animation on hover */
-  .animate-scroll-vertical:hover {
-    animation-play-state: paused;
-  }
-
-  /* Horizontal scrolling animation for government logos */
-  .animate-scroll-horizontal {
-    animation: scroll-horizontal-seamless 40s linear infinite;
-  }
-
-  @keyframes scroll-horizontal-seamless {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-
-  /* Pause horizontal animation on hover */
-  .animate-scroll-horizontal:hover {
-    animation-play-state: paused;
-  }
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
   </style>
 </head>
 
@@ -62,13 +26,13 @@
         </div>
         <nav class="hidden md:flex space-x-4">
           <a href="#services"
-            class="text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors py-4 px-6 rounded-lg block">서비스
+            class="text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors py-4 px-6 rounded-lg block text-xl">서비스
             안내</a>
           <a href="#voucher"
-            class="text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors py-4 px-6 rounded-lg block">바우처
+            class="text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors py-4 px-6 rounded-lg block text-xl">바우처
             안내</a>
           <a href="#contact"
-            class="text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors py-4 px-6 rounded-lg block">문의하기</a>
+            class="text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors py-4 px-6 rounded-lg block text-xl">문의하기</a>
         </nav>
         <div class="flex items-center space-x-4">
           <a href="tel:031-376-9906"

@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["madre", "madre-service", "madre-voucher", "madre-contact"],
+  "author": "madre",
   "license": "ISC",
   "type": "commonjs"
 }
