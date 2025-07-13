@@ -1,357 +1,678 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>마드레 - 산모신생아 건강관리사 서비스</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" href="public/assets/madre_logo.png" />
-  </head>
-  <body class="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-    <!-- Header -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center py-4">
-          <div class="flex items-center ml-8">
-            <a href="#services" class="text-gray-700 hover:text-blue-600 transition-colors">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <title>마드레 - 산모신생아 건강관리사 서비스</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="public/assets/madre_logo.png" />
+  <style>
+    
+  /* Government logos scrolling animation */
+  .animate-scroll-vertical {
+    animation: scroll-vertical 15s linear infinite;
+  }
+
+  @keyframes scroll-vertical {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+
+  /* Pause animation on hover */
+  .animate-scroll-vertical:hover {
+    animation-play-state: paused;
+  }
+
+  /* Horizontal scrolling animation for government logos */
+  .animate-scroll-horizontal {
+    animation: scroll-horizontal-seamless 40s linear infinite;
+  }
+
+  @keyframes scroll-horizontal-seamless {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Pause horizontal animation on hover */
+  .animate-scroll-horizontal:hover {
+    animation-play-state: paused;
+  }
+  </style>
+</head>
+
+<body class="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <div class="flex items-center ml-8">
+          <a href="#services" class="text-gray-700 hover:text-blue-600 transition-colors">
             <img src="public/assets/madre_logo.png" alt="마드레 (Madre)" class="h-20 mt-2" />
           </a>
-          </div>
-          <nav class="hidden md:flex space-x-4">
-            <a href="#services" class="text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors py-4 px-6 rounded-lg block">서비스 안내</a>
-            <a href="#voucher" class="text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors py-4 px-6 rounded-lg block">바우처 안내</a>
-            <a href="#contact" class="text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors py-4 px-6 rounded-lg block">문의하기</a>
-          </nav> 
-          <div class="flex items-center space-x-4">
-            <a href="tel:031-376-9906" class="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-white px-6 py-3 rounded-lg">3분 상담 바로 시작</a>
-          </div>
+        </div>
+        <nav class="hidden md:flex space-x-4">
+          <a href="#services"
+            class="text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors py-4 px-6 rounded-lg block">서비스
+            안내</a>
+          <a href="#voucher"
+            class="text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors py-4 px-6 rounded-lg block">바우처
+            안내</a>
+          <a href="#contact"
+            class="text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors py-4 px-6 rounded-lg block">문의하기</a>
+        </nav>
+        <div class="flex items-center space-x-4">
+          <a href="tel:031-376-9906"
+            class="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-white px-6 py-3 rounded-lg">3분
+            상담 바로 시작</a>
         </div>
       </div>
-    </header>
-    <!-- Hero Section -->
-    <section class="py-20 bg-gradient-to-b from-blue-50 to-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3 leading-snug">
-              엄마와 아가의<br />
-              <span class="text-blue-600">충분한 회복</span>을 위해<br />
-              최선을 다하겠습니다
-            </h1>
-            <p class="text-base text-gray-600 mb-12 font-medium">출산의 끝, 케어의 시작 '마드레'와 함께하세요</p>
-            <div class="mt-2 flex items-center space-x-6 mb-4">
-              <span class="flex items-center text-sm text-gray-600"><svg class="text-blue-600 mr-1 h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>정부 바우처 지원</span>
-              <span class="flex items-center text-sm text-gray-600"><svg class="text-blue-600 mr-1 h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><path d="M8.21 13.89l-1.42 4.24a1 1 0 0 0 1.3 1.3l4.24-1.42"/></svg>전문 자격증 보유</span>
-            </div>
-            <div class="flex flex-col sm:flex-row gap-4">
-              <a href="tel:031-376-9906" class="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-white px-6 py-3 rounded-lg text-center">3분 상담 바로 시작</a>
-              <a href="tel:031-376-9906" class="border border-blue-600 text-blue-600 font-bold px-6 py-3 rounded-lg text-center flex items-center justify-center"><svg class="mr-2 h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92V19a2 2 0 0 1-2.18 2A19.72 19.72 0 0 1 3 5.18 2 2 0 0 1 5 3h2.09a2 2 0 0 1 2 1.72c.13 1.13.37 2.24.72 3.32a2 2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 6.29 6.29l1.27-1.27a2 2 0 0 1 2.11-.45c1.08.35 2.19.59 3.32.72A2 2 0 0 1 22 16.92z"/></svg>지금 확인하기</a>
-            </div>
+    </div>
+  </header>
+  <!-- Hero Section -->
+  <section class="py-20 bg-gradient-to-b from-blue-50 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3 leading-snug" style="line-height: 1.4">
+            엄마와 아가의<br />
+            <span class="text-blue-600">충분한 회복</span>을 위해<br />
+            최선을 다하겠습니다
+          </h1>
+          <p class="text-base text-gray-600 mb-12 font-medium">
+            출산의 끝, 케어의 시작 '마드레'와 함께하세요
+          </p>
+          <div class="mt-2 flex items-center space-x-6 mb-4">
+            <span class="flex items-center text-sm text-gray-600"><svg class="text-blue-600 mr-1 h-5 w-5" fill="none"
+                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>정부 바우처 지원</span>
+            <span class="flex items-center text-sm text-gray-600"><svg class="text-blue-600 mr-1 h-5 w-5" fill="none"
+                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="8" r="7" />
+                <path d="M8.21 13.89l-1.42 4.24a1 1 0 0 0 1.3 1.3l4.24-1.42" />
+              </svg>
+              전문 자격증 보유</span>
           </div>
-          <div class="relative -ml-8">
-            <div class="rounded-2xl bg-white p-2 shadow-2xl overflow-hidden">
-              <img src="public/assets/baby_pic.png" alt="신생아 케어" class="w-full h-72 object-cover rounded-lg" />
-              <div class="absolute -bottom-16 -left-16 z-10">
-                <div class="rounded-xl bg-white p-1 shadow-lg">
-                  <img src="public/assets/baby_shower.png" alt="산후 목욕 서비스" class="w-64 h-48 object-cover rounded-lg" />
-                </div>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="tel:031-376-9906"
+              class="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-white px-6 py-3 rounded-lg text-center">3분
+              상담 바로 시작</a>
+            <a href="tel:031-376-9906"
+              class="border border-blue-600 text-blue-600 font-bold px-6 py-3 rounded-lg text-center flex items-center justify-center">
+              <svg class="mr-2 h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path
+                  d="M22 16.92V19a2 2 0 0 1-2.18 2A19.72 19.72 0 0 1 3 5.18 2 2 0 0 1 5 3h2.09a2 2 0 0 1 2 1.72c.13 1.13.37 2.24.72 3.32a2 2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 6.29 6.29l1.27-1.27a2 2 0 0 1 2.11-.45c1.08.35 2.19.59 3.32.72A2 2 0 0 1 22 16.92z" />
+              </svg>지금 확인하기</a>
+          </div>
+        </div>
+        <div class="relative -ml-8">
+          <div class="rounded-2xl bg-white p-2 shadow-2xl overflow-hidden">
+            <img src="public/assets/baby_pic.png" alt="신생아 케어" class="w-full h-72 object-cover rounded-lg" />
+            <div class="absolute -bottom-16 -left-16 z-10">
+              <div class="rounded-xl bg-white p-1 shadow-lg">
+                <img src="public/assets/baby_shower.png" alt="산후 목욕 서비스" class="w-64 h-48 object-cover rounded-lg" />
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <!-- Services Overview -->
-    <section id="services" class="pt-40 pb-20 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">마드레가 제공하는 전문 서비스</h2>
-          <p class="text-xl text-gray-600 max-w-3xl mx-auto">산모님 가정에 진정으로 필요한 서비스를 제공합니다</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="bg-blue-50 border-blue-200 rounded-2xl shadow p-8">
-            <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-4 mx-auto">
-              <svg class="text-white h-8 w-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h3 class="text-2xl text-gray-900 font-bold mb-4">산모 케어</h3>
-            <ul class="space-y-3 text-gray-600 text-left">
-              <li>산모 모유 수유 지원</li>
-              <li>산모 유방 및 부종관리</li>
-              <li>산모 회복 지원(좌욕)</li>
-              <li>산모 정서적 안정 지원</li>
-            </ul>
-          </div>
-          <div class="bg-blue-50 border-blue-200 rounded-2xl shadow p-8">
-            <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-4 mx-auto">
-              <svg class="text-white h-8 w-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            </div>
-            <h3 class="text-2xl text-gray-900 font-bold mb-4">신생아 케어</h3>
-            <ul class="space-y-3 text-gray-600 text-left">
-              <li>신생아 건강상태 관찰</li>
-              <li>신생아 수유 지원</li>
-              <li>신생아 목욕 및 위생관리</li>
-              <li>신생아 예방접종 지원</li>
-            </ul>
-          </div>
-          <div class="bg-blue-50 border-blue-200 rounded-2xl shadow p-8">
-            <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-4 mx-auto">
-              <svg class="text-white h-8 w-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            </div>
-            <h3 class="text-2xl text-gray-900 font-bold mb-4">가사 지원</h3>
-            <ul class="space-y-3 text-gray-600 text-left">
-              <li>산모 식사준비</li>
-              <li>주 생활공간 청소</li>
-              <li>산모 의류 위생관리</li>
-              <li>생활 공간 정돈</li>
-            </ul>
-          </div>
+    </div>
+  </section>
+  <!-- Services Overview -->
+  <section id="services" class="pt-40 pb-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          마드레가 제공하는 전문 서비스
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          산모님 가정에 진정으로 필요한 서비스를 제공합니다
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div data-replit-metadata="client/src/pages/landing.tsx:172:12" data-component-name="Card" class="rounded-lg border text-card-foreground shadow-sm bg-blue-50 border-blue-200"><div data-replit-metadata="client/src/pages/landing.tsx:173:14" data-component-name="CardHeader" class="flex flex-col space-y-1.5 p-6"><div data-replit-metadata="client/src/pages/landing.tsx:174:16" data-component-name="div" class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users text-white h-8 w-8" data-replit-metadata="client/src/pages/landing.tsx:175:18" data-component-name="Users"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div><div data-replit-metadata="client/src/pages/landing.tsx:177:16" data-component-name="CardTitle" class="font-semibold tracking-tight text-2xl text-gray-900">산모 케어</div></div><div data-replit-metadata="client/src/pages/landing.tsx:181:14" data-component-name="CardContent" class="p-6 pt-0"><ul data-replit-metadata="client/src/pages/landing.tsx:182:16" data-component-name="ul" class="space-y-3 text-gray-600"><li data-replit-metadata="client/src/pages/landing.tsx:183:18" data-component-name="li" class="flex items-start"><div data-replit-metadata="client/src/pages/landing.tsx:184:20" data-component-name="div" class="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div><span data-replit-metadata="client/src/pages/landing.tsx:185:20" data-component-name="span">산모 모유 수유 지원</span></li><li data-replit-metadata="client/src/pages/landing.tsx:187:18" data-component-name="li" class="flex items-start"><div data-replit-metadata="client/src/pages/landing.tsx:188:20" data-component-name="div" class="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div><span data-replit-metadata="client/src/pages/landing.tsx:189:20" data-component-name="span">산모 유방 및 부종관리</span></li><li data-replit-metadata="client/src/pages/landing.tsx:191:18" data-component-name="li" class="flex items-start"><div data-replit-metadata="client/src/pages/landing.tsx:192:20" data-component-name="div" class="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div><span data-replit-metadata="client/src/pages/landing.tsx:193:20" data-component-name="span">산모 회복 지원(좌욕)</span></li><li data-replit-metadata="client/src/pages/landing.tsx:195:18" data-component-name="li" class="flex items-start"><div data-replit-metadata="client/src/pages/landing.tsx:196:20" data-component-name="div" class="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div><span data-replit-metadata="client/src/pages/landing.tsx:197:20" data-component-name="span">산모 정서적 안정 지원</span></li></ul></div></div>
+        <div data-replit-metadata="client/src/pages/landing.tsx:203:12" data-component-name="Card" class="rounded-lg border text-card-foreground shadow-sm bg-blue-50 border-blue-200"><div data-replit-metadata="client/src/pages/landing.tsx:204:14" data-component-name="CardHeader" class="flex flex-col space-y-1.5 p-6"><div data-replit-metadata="client/src/pages/landing.tsx:205:16" data-component-name="div" class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart text-white h-8 w-8" data-replit-metadata="client/src/pages/landing.tsx:206:18" data-component-name="Heart"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></div><div data-replit-metadata="client/src/pages/landing.tsx:208:16" data-component-name="CardTitle" class="font-semibold tracking-tight text-2xl text-gray-900">신생아 케어</div></div><div data-replit-metadata="client/src/pages/landing.tsx:212:14" data-component-name="CardContent" class="p-6 pt-0"><ul data-replit-metadata="client/src/pages/landing.tsx:213:16" data-component-name="ul" class="space-y-3 text-gray-600"><li data-replit-metadata="client/src/pages/landing.tsx:214:18" data-component-name="li" class="flex items-start"><div data-replit-metadata="client/src/pages/landing.tsx:215:20" data-component-name="div" class="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div><span data-replit-metadata="client/src/pages/landing.tsx:216:20" data-component-name="span">신생아 건강상태 관찰</span></li><li data-replit-metadata="client/src/pages/landing.tsx:218:18" data-component-name="li" class="flex items-start"><div data-replit-metadata="client/src/pages/landing.tsx:219:20" data-component-name="div" class="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div><span data-replit-metadata="client/src/pages/landing.tsx:220:20" data-component-name="span">신생아 수유 지원</span></li><li data-replit-metadata="client/src/pages/landing.tsx:222:18" data-component-name="li" class="flex items-start"><div data-replit-metadata="client/src/pages/landing.tsx:223:20" data-component-name="div" class="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div><span data-replit-metadata="client/src/pages/landing.tsx:224:20" data-component-name="span">신생아 목욕 및 위생관리</span></li><li data-replit-metadata="client/src/pages/landing.tsx:226:18" data-component-name="li" class="flex items-start"><div data-replit-metadata="client/src/pages/landing.tsx:227:20" data-component-name="div" class="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div><span data-replit-metadata="client/src/pages/landing.tsx:228:20" data-component-name="span">신생아 예방접종 지원</span></li></ul></div></div>
+        <div data-replit-metadata="client/src/pages/landing.tsx:234:12" data-component-name="Card" class="rounded-lg border text-card-foreground shadow-sm bg-blue-50 border-blue-200"><div data-replit-metadata="client/src/pages/landing.tsx:235:14" data-component-name="CardHeader" class="flex flex-col space-y-1.5 p-6"><div data-replit-metadata="client/src/pages/landing.tsx:236:16" data-component-name="div" class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock text-white h-8 w-8" data-replit-metadata="client/src/pages/landing.tsx:237:18" data-component-name="Clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div><div data-replit-metadata="client/src/pages/landing.tsx:239:16" data-component-name="CardTitle" class="font-semibold tracking-tight text-2xl text-gray-900">가사 지원</div></div><div data-replit-metadata="client/src/pages/landing.tsx:243:14" data-component-name="CardContent" class="p-6 pt-0"><ul data-replit-metadata="client/src/pages/landing.tsx:244:16" data-component-name="ul" class="space-y-3 text-gray-600"><li data-replit-metadata="client/src/pages/landing.tsx:245:18" data-component-name="li" class="flex items-start"><div data-replit-metadata="client/src/pages/landing.tsx:246:20" data-component-name="div" class="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div><span data-replit-metadata="client/src/pages/landing.tsx:247:20" data-component-name="span">산모 식사준비</span></li><li data-replit-metadata="client/src/pages/landing.tsx:249:18" data-component-name="li" class="flex items-start"><div data-replit-metadata="client/src/pages/landing.tsx:250:20" data-component-name="div" class="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div><span data-replit-metadata="client/src/pages/landing.tsx:251:20" data-component-name="span">주 생활공간 청소</span></li><li data-replit-metadata="client/src/pages/landing.tsx:253:18" data-component-name="li" class="flex items-start"><div data-replit-metadata="client/src/pages/landing.tsx:254:20" data-component-name="div" class="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div><span data-replit-metadata="client/src/pages/landing.tsx:255:20" data-component-name="span">산모 의류 위생관리</span></li><li data-replit-metadata="client/src/pages/landing.tsx:257:18" data-component-name="li" class="flex items-start"><div data-replit-metadata="client/src/pages/landing.tsx:258:20" data-component-name="div" class="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div><span data-replit-metadata="client/src/pages/landing.tsx:259:20" data-component-name="span">생활 공간 정돈</span></li></ul></div></div>
         </div>
       </div>
-    </section>
-    <!-- Core Values Section -->
-    <section class="py-20 bg-blue-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">마드레가 제공하는 핵심 가치</h2>
-          <p class="text-xl text-gray-600 max-w-3xl mx-auto">산모님 가정에 진정으로 필요한 서비스를 제공하겠습니다</p>
+    </div>
+  </section>
+  <!-- Core Values Section -->
+  <section data-replit-metadata="client/src/pages/landing.tsx:268:6" data-component-name="section"
+    class="py-20 bg-blue-50">
+    <div data-replit-metadata="client/src/pages/landing.tsx:269:8" data-component-name="div"
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div data-replit-metadata="client/src/pages/landing.tsx:270:10" data-component-name="div" class="text-center mb-16">
+        <h2 data-replit-metadata="client/src/pages/landing.tsx:271:12" data-component-name="h2"
+          class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">마드레가 제공하는 핵심 가치</h2>
+        <p data-replit-metadata="client/src/pages/landing.tsx:274:12" data-component-name="p"
+          class="text-xl text-gray-600 max-w-3xl mx-auto">산모님 가정에 진정으로 필요한 서비스를 제공하겠습니다</p>
+      </div>
+      <div data-replit-metadata="client/src/pages/landing.tsx:279:10" data-component-name="div"
+        class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div data-replit-metadata="client/src/pages/landing.tsx:281:12" data-component-name="div"
+          class="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow duration-300">
+          <div data-replit-metadata="client/src/pages/landing.tsx:282:14" data-component-name="div"
+            class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6"><svg
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-shield text-white h-8 w-8" data-replit-metadata="client/src/pages/landing.tsx:283:16"
+              data-component-name="Shield">
+              <path
+                d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z">
+              </path>
+            </svg></div>
+          <h3 data-replit-metadata="client/src/pages/landing.tsx:285:14" data-component-name="h3"
+            class="text-2xl font-bold text-gray-900 mb-4">안전 우선의 가치</h3>
+          <p data-replit-metadata="client/src/pages/landing.tsx:288:14" data-component-name="p"
+            class="text-gray-600 leading-relaxed break-keep">보건복지부 안전 수칙을 준수하며 산모와 신생아의 안전을 최우선으로 합니다.</p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow duration-300">
-            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg class="text-white h-8 w-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <h3 class="text-2xl font-bold text-gray-900 mb-4">안전 우선의 가치</h3>
-            <p class="text-gray-600 leading-relaxed break-keep">보건복지부 안전 수칙을 준수하며 산모와 신생아의 안전을 최우선으로 합니다.</p>
-          </div>
-          <div class="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow duration-300">
-            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg class="text-white h-8 w-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v2m6.364 1.636l-1.414 1.414M22 12h-2M19.364 19.364l-1.414-1.414M12 22v-2M4.636 19.364l1.414-1.414M2 12h2M4.636 4.636l1.414 1.414"/></svg>
-            </div>
-            <h3 class="text-2xl font-bold text-gray-900 mb-4">위생 청결의 가치</h3>
-            <p class="text-gray-600 leading-relaxed break-keep">아기와 산모가 안심할 수 있도록 언제나 청결을 최우선으로 합니다.</p>
-          </div>
-          <div class="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow duration-300">
-            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg class="text-white h-8 w-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/></svg>
-            </div>
-            <h3 class="text-2xl font-bold text-gray-900 mb-4">윤리 강령의 가치</h3>
-            <p class="text-gray-600 leading-relaxed break-keep">산모와 가족의 사생활을 존중하며 전문적인 서비스를 제공합니다.</p>
-          </div>
+        <div data-replit-metadata="client/src/pages/landing.tsx:295:12" data-component-name="div"
+          class="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow duration-300">
+          <div data-replit-metadata="client/src/pages/landing.tsx:296:14" data-component-name="div"
+            class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6"><svg
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-sparkles text-white h-8 w-8" data-replit-metadata="client/src/pages/landing.tsx:297:16"
+              data-component-name="Sparkles">
+              <path
+                d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z">
+              </path>
+              <path d="M20 3v4"></path>
+              <path d="M22 5h-4"></path>
+              <path d="M4 17v2"></path>
+              <path d="M5 18H3"></path>
+            </svg></div>
+          <h3 data-replit-metadata="client/src/pages/landing.tsx:299:14" data-component-name="h3"
+            class="text-2xl font-bold text-gray-900 mb-4">위생 청결의 가치</h3>
+          <p data-replit-metadata="client/src/pages/landing.tsx:302:14" data-component-name="p"
+            class="text-gray-600 leading-relaxed break-keep">아기와 산모가 안심할 수 있도록 언제나 청결을 최우선으로 합니다.</p>
+        </div>
+        <div data-replit-metadata="client/src/pages/landing.tsx:308:12" data-component-name="div"
+          class="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow duration-300">
+          <div data-replit-metadata="client/src/pages/landing.tsx:309:14" data-component-name="div"
+            class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6"><svg
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-scale text-white h-8 w-8" data-replit-metadata="client/src/pages/landing.tsx:310:16"
+              data-component-name="Scale">
+              <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
+              <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
+              <path d="M7 21h10"></path>
+              <path d="M12 3v18"></path>
+              <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path>
+            </svg></div>
+          <h3 data-replit-metadata="client/src/pages/landing.tsx:312:14" data-component-name="h3"
+            class="text-2xl font-bold text-gray-900 mb-4">윤리 강령의 가치</h3>
+          <p data-replit-metadata="client/src/pages/landing.tsx:315:14" data-component-name="p"
+            class="text-gray-600 leading-relaxed break-keep">산모와 가족의 사생활을 존중하며 전문적인 서비스를 제공합니다.</p>
         </div>
       </div>
-    </section>
-    <!-- Professional Service Operations Policy -->
-    <section class="py-20 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">전문 관리사를 위한 운영 방침</h2>
-          <p class="text-xl text-gray-600">체계적인 관리와 지속적인 서비스 개선을 통해 최고의 케어를 제공합니다</p>
+    </div>
+  </section>
+  <!-- Professional Service Operations Policy -->
+  <section data-replit-metadata="client/src/pages/landing.tsx:323:6" data-component-name="section" class="py-20 bg-white">
+    <div data-replit-metadata="client/src/pages/landing.tsx:324:8" data-component-name="div"
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div data-replit-metadata="client/src/pages/landing.tsx:325:10" data-component-name="div" class="text-center mb-16">
+        <h2 data-replit-metadata="client/src/pages/landing.tsx:326:12" data-component-name="h2"
+          class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">전문 관리사를 위한 운영 방침</h2>
+        <p data-replit-metadata="client/src/pages/landing.tsx:329:12" data-component-name="p"
+          class="text-xl text-gray-600">체계적인 관리와 지속적인 서비스 개선을 통해 최고의 케어를 제공합니다</p>
+      </div>
+      <div data-replit-metadata="client/src/pages/landing.tsx:335:10" data-component-name="div"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div data-replit-metadata="client/src/pages/landing.tsx:337:12" data-component-name="div"
+          class="bg-blue-50 rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300">
+          <div data-replit-metadata="client/src/pages/landing.tsx:338:14" data-component-name="div"
+            class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4"><svg
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-message-square-text text-white h-6 w-6"
+              data-replit-metadata="client/src/pages/landing.tsx:339:16" data-component-name="MessageSquareText">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              <path d="M13 8H7"></path>
+              <path d="M17 12H7"></path>
+            </svg></div>
+          <h3 data-replit-metadata="client/src/pages/landing.tsx:341:14" data-component-name="h3"
+            class="text-lg font-semibold text-gray-900 mb-3">고객 피드백 점검</h3>
+          <p data-replit-metadata="client/src/pages/landing.tsx:344:14" data-component-name="p"
+            class="text-sm text-gray-600 ml-[-18px] mr-[-18px]">서비스 초기 단계에서 고객님의 만족도를 확인하고 개선점을 파악합니다</p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div class="bg-blue-50 rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300">
-            <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="text-white h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3v4M8 3v4M4 11h16"/></svg>
-            </div>
-            <h3 class="text-lg font-semibold text-gray-900 mb-3">고객 피드백 점검</h3>
-            <p class="text-sm text-gray-600">서비스 초기 단계에서 고객님의 만족도를 확인하고 개선점을 파악합니다</p>
-          </div>
-          <div class="bg-green-50 rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300">
-            <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="text-white h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <h3 class="text-lg font-semibold text-gray-900 mb-3">사후평가 반영·서비스 보완</h3>
-            <p class="text-sm text-gray-600">고객 평가를 분석하여 서비스 품질 향상에 반영하고 지속적으로 개선합니다</p>
-          </div>
-          <div class="bg-purple-50 rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300">
-            <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="text-white h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 6V4a4 4 0 0 0-8 0v2"/><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M7 10v4"/><path d="M17 10v4"/></svg>
-            </div>
-            <h3 class="text-lg font-semibold text-gray-900 mb-3">우수사례·경력에 따른 등급관리</h3>
-            <p class="text-sm text-gray-600">관리사의 경력과 우수사례를 바탕으로 등급을 관리하여 전문성을 보장합니다</p>
-          </div>
-          <div class="bg-orange-50 rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300">
-            <div class="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="text-white h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 7v4a1 1 0 0 0 1 1h3v2a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-2h3a1 1 0 0 0 1-1V7"/></svg>
-            </div>
-            <h3 class="text-lg font-semibold text-gray-900 mb-3">4대보험·퇴직금 보장</h3>
-            <p class="text-sm text-gray-600">관리사들의 안정적인 근무환경을 위한 완전한 사회보장제도를 제공합니다</p>
-          </div>
+        <div data-replit-metadata="client/src/pages/landing.tsx:351:12" data-component-name="div"
+          class="bg-green-50 rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300">
+          <div data-replit-metadata="client/src/pages/landing.tsx:352:14" data-component-name="div"
+            class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4"><svg
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-clipboard-check text-white h-6 w-6"
+              data-replit-metadata="client/src/pages/landing.tsx:353:16" data-component-name="ClipboardCheck">
+              <rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect>
+              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+              <path d="m9 14 2 2 4-4"></path>
+            </svg></div>
+          <h3 data-replit-metadata="client/src/pages/landing.tsx:355:14" data-component-name="h3"
+            class="text-lg font-semibold text-gray-900 mb-3">사후평가 반영·서비스 보완</h3>
+          <p data-replit-metadata="client/src/pages/landing.tsx:358:14" data-component-name="p"
+            class="text-sm text-gray-600 ml-[-19px] mr-[-19px]">고객 평가를 분석하여 서비스 품질 향상에 반영하고 지속적으로 개선합니다</p>
+        </div>
+        <div data-replit-metadata="client/src/pages/landing.tsx:365:12" data-component-name="div"
+          class="bg-purple-50 rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300">
+          <div data-replit-metadata="client/src/pages/landing.tsx:366:14" data-component-name="div"
+            class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4"><svg
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-trending-up text-white h-6 w-6"
+              data-replit-metadata="client/src/pages/landing.tsx:367:16" data-component-name="TrendingUp">
+              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+              <polyline points="16 7 22 7 22 13"></polyline>
+            </svg></div>
+          <h3 data-replit-metadata="client/src/pages/landing.tsx:369:14" data-component-name="h3"
+            class="text-lg font-semibold text-gray-900 mb-3 ml-[-16px] mr-[-16px]">우수사례·경력에 따른 등급관리</h3>
+          <p data-replit-metadata="client/src/pages/landing.tsx:372:14" data-component-name="p"
+            class="text-sm text-gray-600 ml-[-10px] mr-[-10px]">관리사의 경력과 우수사례를 바탕으로 등급을 관리하여 전문성을 보장합니다</p>
+        </div>
+        <div data-replit-metadata="client/src/pages/landing.tsx:379:12" data-component-name="div"
+          class="bg-orange-50 rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300">
+          <div data-replit-metadata="client/src/pages/landing.tsx:380:14" data-component-name="div"
+            class="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-4"><svg
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-umbrella text-white h-6 w-6" data-replit-metadata="client/src/pages/landing.tsx:381:16"
+              data-component-name="Umbrella">
+              <path d="M22 12a10.06 10.06 1 0 0-20 0Z"></path>
+              <path d="M12 12v8a2 2 0 0 0 4 0"></path>
+              <path d="M12 2v1"></path>
+            </svg></div>
+          <h3 data-replit-metadata="client/src/pages/landing.tsx:383:14" data-component-name="h3"
+            class="text-lg font-semibold text-gray-900 mb-3">4대보험·퇴직금 보장</h3>
+          <p data-replit-metadata="client/src/pages/landing.tsx:386:14" data-component-name="p"
+            class="text-sm text-gray-600 ml-[-10px] mr-[-10px]">관리사들의 안정적인 근무환경을 위한 완전한 사회보장제도를 제공합니다</p>
         </div>
       </div>
-    </section>
-    <!-- Government Voucher Section -->
-    <section id="voucher" class="py-20 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-gradient-to-r from-blue-600 to-blue-500 rounded-3xl p-8 md:p-12 text-white">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 class="text-3xl md:text-4xl font-bold mb-6">산후도우미 지원제도 안내</h2>
-              <p class="text-lg mb-8 opacity-90">2025년부터 친정엄마까지 지원 대상이 확대되어<br />더욱 안정적인 산후조리 기간을 확보할 수 있습니다</p>
-              <div class="space-y-6">
-                <div class="flex items-start">
-                  <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center mr-4 mt-1">
-                    <svg class="text-white h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold mb-2">신청 기간</h4>
-                    <p class="opacity-90">출산예정일 40일 전부터 출산 후 30일까지 신청 가능</p>
-                  </div>
+    </div>
+  </section>
+  <!-- Government Voucher Section -->
+  <section data-replit-metadata="client/src/pages/landing.tsx:395:6" data-component-name="section" id="voucher"
+    class="py-20 bg-white">
+    <div data-replit-metadata="client/src/pages/landing.tsx:396:8" data-component-name="div"
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div data-replit-metadata="client/src/pages/landing.tsx:397:10" data-component-name="div"
+        class="bg-gradient-to-r from-blue-600 to-blue-500 rounded-3xl p-8 md:p-12 text-white">
+        <div data-replit-metadata="client/src/pages/landing.tsx:398:12" data-component-name="div"
+          class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div data-replit-metadata="client/src/pages/landing.tsx:399:14" data-component-name="div">
+            <h2 data-replit-metadata="client/src/pages/landing.tsx:400:16" data-component-name="h2"
+              class="text-3xl md:text-4xl font-bold mb-6">산후도우미 지원제도 안내</h2>
+            <p data-replit-metadata="client/src/pages/landing.tsx:403:16" data-component-name="p"
+              class="text-lg mb-8 opacity-90">2025년부터 친정엄마까지 지원 대상이 확대되어<br
+                data-replit-metadata="client/src/pages/landing.tsx:405:18" data-component-name="br">더욱 안정적인 산후조리 기간을 확보할 수
+              있습니다</p>
+            <div data-replit-metadata="client/src/pages/landing.tsx:409:16" data-component-name="div" class="space-y-6">
+              <div data-replit-metadata="client/src/pages/landing.tsx:410:18" data-component-name="div"
+                class="flex items-start">
+                <div data-replit-metadata="client/src/pages/landing.tsx:411:20" data-component-name="div"
+                  class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center mr-4 mt-1"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-clock text-white h-4 w-4"
+                    data-replit-metadata="client/src/pages/landing.tsx:412:22" data-component-name="Clock">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg></div>
+                <div data-replit-metadata="client/src/pages/landing.tsx:414:20" data-component-name="div">
+                  <h4 data-replit-metadata="client/src/pages/landing.tsx:415:22" data-component-name="h4"
+                    class="font-semibold mb-2">신청 기간</h4>
+                  <p data-replit-metadata="client/src/pages/landing.tsx:416:22" data-component-name="p"
+                    class="opacity-90">출산예정일 40일 전부터 출산 후 30일까지 신청 가능</p>
                 </div>
-                <div class="flex items-start">
-                  <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center mr-4 mt-1">
-                    <svg class="text-white h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold mb-2">지원 대상</h4>
-                    <p class="opacity-90">국내에 주민등록 또는 외국인 등록을 둔 출산 가정</p>
-                  </div>
+              </div>
+              <div data-replit-metadata="client/src/pages/landing.tsx:422:18" data-component-name="div"
+                class="flex items-start">
+                <div data-replit-metadata="client/src/pages/landing.tsx:423:20" data-component-name="div"
+                  class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center mr-4 mt-1"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-users text-white h-4 w-4"
+                    data-replit-metadata="client/src/pages/landing.tsx:424:22" data-component-name="Users">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg></div>
+                <div data-replit-metadata="client/src/pages/landing.tsx:426:20" data-component-name="div">
+                  <h4 data-replit-metadata="client/src/pages/landing.tsx:427:22" data-component-name="h4"
+                    class="font-semibold mb-2">지원 대상</h4>
+                  <p data-replit-metadata="client/src/pages/landing.tsx:428:22" data-component-name="p"
+                    class="opacity-90">국내에 주민등록 또는 외국인 등록을 둔 출산 가정</p>
                 </div>
-                <div class="flex items-start">
-                  <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center mr-4 mt-1">
-                    <svg class="text-white h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold mb-2">소득 기준</h4>
-                    <p class="opacity-90">건강보험료 기준 중위소득 150% 이하 <span class="text-sm">(*지자체에 따라 상이)</span><br />(4인 가구 기준 월소득 약 8,595,000원 이하)</p>
-                  </div>
+              </div>
+              <div data-replit-metadata="client/src/pages/landing.tsx:434:18" data-component-name="div"
+                class="flex items-start">
+                <div data-replit-metadata="client/src/pages/landing.tsx:435:20" data-component-name="div"
+                  class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center mr-4 mt-1"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-shield text-white h-4 w-4"
+                    data-replit-metadata="client/src/pages/landing.tsx:436:22" data-component-name="Shield">
+                    <path
+                      d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z">
+                    </path>
+                  </svg></div>
+                <div data-replit-metadata="client/src/pages/landing.tsx:438:20" data-component-name="div">
+                  <h4 data-replit-metadata="client/src/pages/landing.tsx:439:22" data-component-name="h4"
+                    class="font-semibold mb-2">소득 기준</h4>
+                  <p data-replit-metadata="client/src/pages/landing.tsx:440:22" data-component-name="p"
+                    class="opacity-90">건강보험료 기준 중위소득 150% 이하 <span
+                      data-replit-metadata="client/src/pages/landing.tsx:442:24" data-component-name="span"
+                      class="text-sm">(*지자체에 따라 상이)</span><br data-replit-metadata="client/src/pages/landing.tsx:443:24"
+                      data-component-name="br">(4인 가구 기준 월소득 약 8,595,000원 이하)</p>
                 </div>
               </div>
             </div>
-            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-              <h3 class="text-2xl font-bold mb-6">산모·신생아 건강관리사 교육 안내 <br /> (2025년부터 친정엄마도 신청가능)</h3>
-              <div class="space-y-4">
-                <div class="bg-white/20 rounded-lg p-4">
-                  <h4 class="font-semibold mb-2">교육 시간</h4>
-                  <p class="opacity-90">40~60시간 (평생유지)</p>
-                </div>
-                <div class="bg-white/20 rounded-lg p-4">
-                  <h4 class="font-semibold mb-2">교육 비용</h4>
-                  <p class="opacity-90">약 20~25만원</p>
-                </div>
-                <div class="bg-white/20 rounded-lg p-4">
-                  <h4 class="font-semibold mb-2">교육 내용</h4>
-                  <p class="opacity-90">산모 관리, 신생아 돌보기, 위생관리, 응급상황 대처</p>
-                </div>
+          </div>
+          <div data-replit-metadata="client/src/pages/landing.tsx:451:14" data-component-name="div"
+            class="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
+            <h3 data-replit-metadata="client/src/pages/landing.tsx:452:16" data-component-name="h3"
+              class="text-2xl font-bold mb-6">산모·신생아 건강관리사 교육 안내 <br
+                data-replit-metadata="client/src/pages/landing.tsx:453:37" data-component-name="br"> (2025년부터 친정엄마도 신청가능)
+            </h3>
+            <div data-replit-metadata="client/src/pages/landing.tsx:455:16" data-component-name="div" class="space-y-4">
+              <div data-replit-metadata="client/src/pages/landing.tsx:456:18" data-component-name="div"
+                class="bg-white/20 rounded-lg p-4">
+                <h4 data-replit-metadata="client/src/pages/landing.tsx:457:20" data-component-name="h4"
+                  class="font-semibold mb-2">교육 시간</h4>
+                <p data-replit-metadata="client/src/pages/landing.tsx:458:20" data-component-name="p" class="opacity-90">
+                  40~60시간 (평생유지)</p>
               </div>
-              <a href="#contact" class="bg-white text-blue-600 hover:bg-white/90 mt-6 w-full block text-center font-bold py-3 rounded-lg">교육 신청하기</a>
-            </div>
+              <div data-replit-metadata="client/src/pages/landing.tsx:460:18" data-component-name="div"
+                class="bg-white/20 rounded-lg p-4">
+                <h4 data-replit-metadata="client/src/pages/landing.tsx:461:20" data-component-name="h4"
+                  class="font-semibold mb-2">교육 비용</h4>
+                <p data-replit-metadata="client/src/pages/landing.tsx:462:20" data-component-name="p" class="opacity-90">약
+                  20~25만원</p>
+              </div>
+              <div data-replit-metadata="client/src/pages/landing.tsx:464:18" data-component-name="div"
+                class="bg-white/20 rounded-lg p-4">
+                <h4 data-replit-metadata="client/src/pages/landing.tsx:465:20" data-component-name="h4"
+                  class="font-semibold mb-2">교육 내용</h4>
+                <p data-replit-metadata="client/src/pages/landing.tsx:466:20" data-component-name="p" class="opacity-90">
+                  산모 관리, 신생아 돌보기, 위생관리, 응급상황 대처</p>
+              </div>
+            </div><button data-replit-metadata="client/src/pages/landing.tsx:471:16" data-component-name="Button"
+              class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-10 px-4 py-2 bg-white text-blue-600 hover:bg-white/90 mt-6 w-full">교육
+              신청하기</button>
           </div>
         </div>
       </div>
-    </section>
-    <!-- Contact Section -->
-    <section id="contact" class="pt-40 pb-20 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-snug">산모님을 위한<br /><span class="text-blue-600">충분한 상담</span>을 받아보세요</h2>
-          <p class="text-xl text-gray-600 mb-8">전문 상담사가 산모님의 상황에 맞는 최적의 케어 서비스를 안내해드립니다</p>
+    </div>
+  </section>
+  <!-- Contact Section -->
+  <section data-replit-metadata="client/src/pages/landing.tsx:487:6" data-component-name="section" id="contact"
+    class="pt-40 pb-20 bg-white">
+    <div data-replit-metadata="client/src/pages/landing.tsx:488:8" data-component-name="div"
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div data-replit-metadata="client/src/pages/landing.tsx:489:10" data-component-name="div" class="text-center mb-16">
+        <h2 data-replit-metadata="client/src/pages/landing.tsx:490:12" data-component-name="h2"
+          class="text-3xl md:text-4xl font-bold text-gray-900 mb-6" style="line-height: 1.4;">산모님을 위한<br
+            data-replit-metadata="client/src/pages/landing.tsx:495:14" data-component-name="br"><span
+            data-replit-metadata="client/src/pages/landing.tsx:496:14" data-component-name="span"
+            class="text-blue-600">충분한 상담</span>을 받아보세요</h2>
+        <p data-replit-metadata="client/src/pages/landing.tsx:498:12" data-component-name="p"
+          class="text-xl text-gray-600 mb-8">전문 상담사가 산모님의 상황에 맞는<br
+            data-replit-metadata="client/src/pages/landing.tsx:500:14" data-component-name="br">최적의 케어 서비스를 안내해드립니다</p>
+      </div>
+      <div data-replit-metadata="client/src/pages/landing.tsx:505:10" data-component-name="div"
+        class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div data-replit-metadata="client/src/pages/landing.tsx:506:12" data-component-name="div" class="text-center">
+          <div data-replit-metadata="client/src/pages/landing.tsx:507:14" data-component-name="div"
+            class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4"><svg
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-phone text-white h-8 w-8" data-replit-metadata="client/src/pages/landing.tsx:508:16"
+              data-component-name="Phone">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+              </path>
+            </svg></div>
+          <h3 data-replit-metadata="client/src/pages/landing.tsx:510:14" data-component-name="h3"
+            class="font-semibold text-gray-900 mb-2">전화 상담</h3>
+          <p data-replit-metadata="client/src/pages/landing.tsx:511:14" data-component-name="p" class="text-gray-600">
+            031-376-9906</p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          <div class="text-center">
-            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="text-white h-8 w-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92V19a2 2 0 0 1-2.18 2A19.72 19.72 0 0 1 3 5.18 2 2 0 0 1 5 3h2.09a2 2 0 0 1 2 1.72c.13 1.13.37 2.24.72 3.32a2 2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 6.29 6.29l1.27-1.27a2 2 0 0 1 2.11-.45c1.08.35 2.19.59 3.32.72A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <h3 class="font-semibold text-gray-900 mb-2">전화 상담</h3>
-            <p class="text-gray-600">031-376-9906</p>
-          </div>
-          <div class="text-center">
-            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="text-white h-8 w-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M22 4L12 14.01 2 4"/></svg>
-            </div>
-            <h3 class="font-semibold text-gray-900 mb-2">이메일 상담</h3>
-            <p class="text-gray-600">madre.korea@naver.com</p>
-          </div>
-          <div class="text-center">
-            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="text-white h-8 w-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v4.5"/><path d="M3 10.5V19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-8.5"/><path d="M7 19v-4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v4"/></svg>
-            </div>
-            <h3 class="font-semibold text-gray-900 mb-2">오시는 길</h3>
-            <p class="text-gray-600 text-sm">경기도 화성시 동탄기흥로 614<br />더퍼스트타워2 1709호</p>
+        <div data-replit-metadata="client/src/pages/landing.tsx:514:12" data-component-name="div" class="text-center">
+          <div data-replit-metadata="client/src/pages/landing.tsx:515:14" data-component-name="div"
+            class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4"><svg
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-mail text-white h-8 w-8" data-replit-metadata="client/src/pages/landing.tsx:516:16"
+              data-component-name="Mail">
+              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg></div>
+          <h3 data-replit-metadata="client/src/pages/landing.tsx:518:14" data-component-name="h3"
+            class="font-semibold text-gray-900 mb-2">이메일 상담</h3>
+          <p data-replit-metadata="client/src/pages/landing.tsx:519:14" data-component-name="p" class="text-gray-600">
+            madre.korea@naver.com</p>
+        </div>
+        <div data-replit-metadata="client/src/pages/landing.tsx:522:12" data-component-name="div" class="text-center">
+          <div data-replit-metadata="client/src/pages/landing.tsx:523:14" data-component-name="div"
+            class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4"><svg
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-map-pin text-white h-8 w-8" data-replit-metadata="client/src/pages/landing.tsx:524:16"
+              data-component-name="MapPin">
+              <path
+                d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+              </path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg></div>
+          <h3 data-replit-metadata="client/src/pages/landing.tsx:526:14" data-component-name="h3"
+            class="font-semibold text-gray-900 mb-2">오시는 길</h3>
+          <p data-replit-metadata="client/src/pages/landing.tsx:527:14" data-component-name="p"
+            class="text-gray-600 text-sm">경기도 화성시 동탄기흥로 614<br data-replit-metadata="client/src/pages/landing.tsx:529:16"
+              data-component-name="br">더퍼스트타워2 1709호</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Social Media & Government Support Section -->
+  <section data-replit-metadata="client/src/pages/landing.tsx:537:6" data-component-name="section"
+    class="py-20 bg-gray-50">
+    <div data-replit-metadata="client/src/pages/landing.tsx:538:8" data-component-name="div"
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div data-replit-metadata="client/src/pages/landing.tsx:539:10" data-component-name="div"
+        class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div data-replit-metadata="client/src/pages/landing.tsx:541:12" data-component-name="div"
+          class="text-center lg:text-left">
+          <h2 data-replit-metadata="client/src/pages/landing.tsx:542:14" data-component-name="h2"
+            class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">마드레와 함께하세요</h2>
+          <p data-replit-metadata="client/src/pages/landing.tsx:545:14" data-component-name="p"
+            class="text-xl text-gray-600 mb-8">최신 정보와 유용한 육아 팁을 만나보세요</p>
+          <div data-replit-metadata="client/src/pages/landing.tsx:549:14" data-component-name="div"
+            class="flex justify-center lg:justify-start space-x-6"><a
+              data-replit-metadata="client/src/pages/landing.tsx:550:16" data-component-name="a"
+              href="https://www.youtube.com/@madre.official" target="_blank" rel="noopener noreferrer"
+              class="flex items-center justify-center w-16 h-16 bg-red-600 rounded-full text-white hover:scale-110 transition-transform duration-300 shadow-lg"><svg
+                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-youtube h-8 w-8" data-replit-metadata="client/src/pages/landing.tsx:556:18"
+                data-component-name="Youtube">
+                <path
+                  d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17">
+                </path>
+                <path d="m10 15 5-3-5-3z"></path>
+              </svg></a><a data-replit-metadata="client/src/pages/landing.tsx:558:16" data-component-name="a"
+              href="https://www.instagram.com/madre.korea/" target="_blank" rel="noopener noreferrer"
+              class="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full text-white hover:scale-110 transition-transform duration-300 shadow-lg"><svg
+                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-instagram h-8 w-8" data-replit-metadata="client/src/pages/landing.tsx:564:18"
+                data-component-name="Instagram">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+              </svg></a><a data-replit-metadata="client/src/pages/landing.tsx:566:16" data-component-name="a"
+              href="https://www.tiktok.com/@madre.korea" target="_blank" rel="noopener noreferrer"
+              class="flex items-center justify-center w-16 h-16 bg-black rounded-full text-white hover:scale-110 transition-transform duration-300 shadow-lg"><svg
+                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-music h-8 w-8" data-replit-metadata="client/src/pages/landing.tsx:572:18"
+                data-component-name="Music">
+                <path d="M9 18V5l12-2v13"></path>
+                <circle cx="6" cy="18" r="3"></circle>
+                <circle cx="18" cy="16" r="3"></circle>
+              </svg></a></div>
+          <div data-replit-metadata="client/src/pages/landing.tsx:576:14" data-component-name="div"
+            class="mt-6 space-y-2">
+            <p data-replit-metadata="client/src/pages/landing.tsx:577:16" data-component-name="p"
+              class="text-sm text-gray-600"><strong data-replit-metadata="client/src/pages/landing.tsx:578:18"
+                data-component-name="strong">유튜브</strong>: @madre.official</p>
+            <p data-replit-metadata="client/src/pages/landing.tsx:580:16" data-component-name="p"
+              class="text-sm text-gray-600"><strong data-replit-metadata="client/src/pages/landing.tsx:581:18"
+                data-component-name="strong">인스타그램</strong>: @madre.korea</p>
+            <p data-replit-metadata="client/src/pages/landing.tsx:583:16" data-component-name="p"
+              class="text-sm text-gray-600"><strong data-replit-metadata="client/src/pages/landing.tsx:584:18"
+                data-component-name="strong">틱톡</strong>: @madre.korea</p>
           </div>
         </div>
       </div>
-    </section>
-    <!-- Social Media & Government Support Section -->
-    <section class="py-20 bg-gray-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div class="text-center lg:text-left">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">마드레와 함께하세요</h2>
-            <p class="text-xl text-gray-600 mb-8">최신 정보와 유용한 육아 팁을 만나보세요</p>
-            <div class="flex justify-center lg:justify-start space-x-6">
-              <a href="https://www.youtube.com/@madre.official" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-16 h-16 bg-red-600 rounded-full text-white hover:scale-110 transition-transform duration-300 shadow-lg"><svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6zm12-3c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-4z"/></svg></a>
-              <a href="https://www.instagram.com/madre.korea/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full text-white hover:scale-110 transition-transform duration-300 shadow-lg"><svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm4.25 2.75a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25.75a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
-              <a href="https://www.tiktok.com/@madre.korea" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-16 h-16 bg-black rounded-full text-white hover:scale-110 transition-transform duration-300 shadow-lg"><svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 0 3 9.5v5A6.5 6.5 0 0 0 9.5 21h5A6.5 6.5 0 0 0 21 14.5v-5A6.5 6.5 0 0 0 14.5 3h-5zm0 1.5h5A5 5 0 0 1 19.5 9.5v5A5 5 0 0 1 14.5 19.5h-5A5 5 0 0 1 4.5 14.5v-5A5 5 0 0 1 9.5 4.5zm2.5 2.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"/></svg></a>
-            </div>
-            <div class="mt-6 space-y-2">
-              <p class="text-sm text-gray-600"><strong>유튜브</strong>: @madre.official</p>
-              <p class="text-sm text-gray-600"><strong>인스타그램</strong>: @madre.korea</p>
-              <p class="text-sm text-gray-600"><strong>틱톡</strong>: @madre.korea</p>
-            </div>
+    </div>
+  </section>
+  <!-- Horizontal Government Logos Carousel -->  
+  <section data-replit-metadata="client/src/pages/landing.tsx:593:6" data-component-name="section"
+    class="py-8 bg-white overflow-hidden">
+    <div data-replit-metadata="client/src/pages/landing.tsx:594:8" data-component-name="div" class="relative">
+      <div data-replit-metadata="client/src/pages/landing.tsx:595:10" data-component-name="div" class="overflow-hidden">
+        <div data-replit-metadata="client/src/pages/landing.tsx:596:12" data-component-name="div"
+          class="animate-scroll-horizontal whitespace-nowrap flex">
+          <div data-replit-metadata="client/src/pages/landing.tsx:598:14" data-component-name="div"
+            class="flex items-center space-x-6 mr-6 flex-shrink-0">
+            <div data-replit-metadata="client/src/pages/landing.tsx:599:16" data-component-name="div"
+              class="w-32 h-20 bg-white border border-gray-200 shadow-sm flex-shrink-0 flex items-center justify-center p-2 opacity-75">
+              <img data-replit-metadata="client/src/pages/landing.tsx:600:18" data-component-name="img"
+                src="public/assets/logo_hrdk.png" alt="한국산업인력공단" class="w-full h-full object-contain"></div>
+            <div data-replit-metadata="client/src/pages/landing.tsx:607:16" data-component-name="div"
+              class="w-32 h-20 bg-white border border-gray-200 shadow-sm flex-shrink-0 flex items-center justify-center p-2 opacity-75">
+              <img data-replit-metadata="client/src/pages/landing.tsx:608:18" data-component-name="img"
+                src="public/assets/logo_ssis.png" alt="한국사회보장정보원" class="w-full h-full object-contain"></div>
+            <div data-replit-metadata="client/src/pages/landing.tsx:615:16" data-component-name="div"
+              class="w-32 h-20 bg-white border border-gray-200 shadow-sm flex-shrink-0 flex items-center justify-center p-2 opacity-75">
+              <img data-replit-metadata="client/src/pages/landing.tsx:616:18" data-component-name="img"
+                src=public/assets/logo_medi.png" alt="한국보건산업진흥원" class="w-full h-full object-contain"></div>
+            <div data-replit-metadata="client/src/pages/landing.tsx:623:16" data-component-name="div"
+              class="w-32 h-20 bg-white border border-gray-200 shadow-sm flex-shrink-0 flex items-center justify-center p-2 opacity-75">
+              <img data-replit-metadata="client/src/pages/landing.tsx:624:18" data-component-name="img"
+                src="public/assets/logo_health.png" alt="한국건강관리협회" class="w-full h-full object-contain"></div>
+            <div data-replit-metadata="client/src/pages/landing.tsx:631:16" data-component-name="div"
+              class="w-32 h-20 bg-white border border-gray-200 shadow-sm flex-shrink-0 flex items-center justify-center p-2 opacity-75">
+              <img data-replit-metadata="client/src/pages/landing.tsx:632:18" data-component-name="img"
+                src="public/assets/logo_female.png" alt="여성가족부" class="w-full h-full object-contain"></div>
+            <div data-replit-metadata="client/src/pages/landing.tsx:639:16" data-component-name="div"
+              class="w-32 h-20 bg-white border border-gray-200 shadow-sm flex-shrink-0 flex items-center justify-center p-2 opacity-75">
+              <img data-replit-metadata="client/src/pages/landing.tsx:640:18" data-component-name="img"
+                src="public/assets/logo_health.png" alt="보건복지부" class="w-full h-full object-contain"></div>
+            <div data-replit-metadata="client/src/pages/landing.tsx:647:16" data-component-name="div"
+              class="w-32 h-20 bg-white border border-gray-200 shadow-sm flex-shrink-0 flex items-center justify-center p-2 opacity-75">
+              <img data-replit-metadata="client/src/pages/landing.tsx:648:18" data-component-name="img"
+                src="public/assets/logo_hWell.png" alt="국민건강보험공단" class="w-full h-full object-contain"></div>
+            <div data-replit-metadata="client/src/pages/landing.tsx:655:16" data-component-name="div"
+              class="w-32 h-20 bg-white border border-gray-200 shadow-sm flex-shrink-0 flex items-center justify-center p-2 opacity-75">
+              <img data-replit-metadata="client/src/pages/landing.tsx:656:18" data-component-name="img"
+                src="public/assets/logo_labor.png" alt="고용노동부" class="w-full h-full object-contain"></div>
+          </div>
+          <div data-replit-metadata="client/src/pages/landing.tsx:665:14" data-component-name="div"
+            class="flex items-center space-x-6 flex-shrink-0">
+            <div data-replit-metadata="client/src/pages/landing.tsx:666:16" data-component-name="div"
+              class="w-32 h-20 bg-white border border-gray-200 shadow-sm flex-shrink-0 flex items-center justify-center p-2 opacity-75">
+              <img data-replit-metadata="client/src/pages/landing.tsx:667:18" data-component-name="img"
+                src="public/assets/logo_hrdk.png" alt="한국산업인력공단" class="w-full h-full object-contain"></div>
+            <div data-replit-metadata="client/src/pages/landing.tsx:674:16" data-component-name="div"
+              class="w-32 h-20 bg-white border border-gray-200 shadow-sm flex-shrink-0 flex items-center justify-center p-2 opacity-75">
+              <img data-replit-metadata="client/src/pages/landing.tsx:675:18" data-component-name="img"
+                src="public/assets/logo_ssis.png" alt="한국사회보장정보원" class="w-full h-full object-contain"></div>
+            <div data-replit-metadata="client/src/pages/landing.tsx:682:16" data-component-name="div"
+              class="w-32 h-20 bg-white border border-gray-200 shadow-sm flex-shrink-0 flex items-center justify-center p-2 opacity-75">
+              <img data-replit-metadata="client/src/pages/landing.tsx:683:18" data-component-name="img"
+                src=public/assets/logo_medi.png" alt="한국보건산업진흥원" class="w-full h-full object-contain"></div>
+            <div data-replit-metadata="client/src/pages/landing.tsx:690:16" data-component-name="div"
+              class="w-32 h-20 bg-white border border-gray-200 shadow-sm flex-shrink-0 flex items-center justify-center p-2 opacity-75">
+              <img data-replit-metadata="client/src/pages/landing.tsx:691:18" data-component-name="img"
+                src="public/assets/logo_health.png" alt="한국건강관리협회" class="w-full h-full object-contain"></div>
+            <div data-replit-metadata="client/src/pages/landing.tsx:698:16" data-component-name="div"
+              class="w-32 h-20 bg-white border border-gray-200 shadow-sm flex-shrink-0 flex items-center justify-center p-2 opacity-75">
+              <img data-replit-metadata="client/src/pages/landing.tsx:699:18" data-component-name="img"
+                src="public/assets/logo_female.png" alt="여성가족부" class="w-full h-full object-contain"></div>
+            <div data-replit-metadata="client/src/pages/landing.tsx:706:16" data-component-name="div"
+              class="w-32 h-20 bg-white border border-gray-200 shadow-sm flex-shrink-0 flex items-center justify-center p-2 opacity-75">
+              <img data-replit-metadata="client/src/pages/landing.tsx:707:18" data-component-name="img"
+                src="public/assets/logo_health.png" alt="보건복지부" class="w-full h-full object-contain"></div>
+            <div data-replit-metadata="client/src/pages/landing.tsx:714:16" data-component-name="div"
+              class="w-32 h-20 bg-white border border-gray-200 shadow-sm flex-shrink-0 flex items-center justify-center p-2 opacity-75">
+              <img data-replit-metadata="client/src/pages/landing.tsx:715:18" data-component-name="img"
+                src="public/assets/logo_hWell.png" alt="국민건강보험공단" class="w-full h-full object-contain"></div>
+            <div data-replit-metadata="client/src/pages/landing.tsx:722:16" data-component-name="div"
+              class="w-32 h-20 bg-white border border-gray-200 shadow-sm flex-shrink-0 flex items-center justify-center p-2 opacity-75">
+              <img data-replit-metadata="client/src/pages/landing.tsx:723:18" data-component-name="img"
+                src="public/assets/logo_labor.png" alt="고용노동부" class="w-full h-full object-contain"></div>
           </div>
         </div>
       </div>
-    </section>
-    <!-- Horizontal Government Logos Carousel -->
-    <section class="py-8 bg-white overflow-hidden">
-      <div class="relative">
-        <div class="overflow-hidden">
-          <div class="flex flex-wrap justify-center items-center space-x-6">
-            <img src="public/assets/logo_hrdk.png" alt="한국산업인력공단" class="w-32 h-20 object-contain opacity-75" />
-            <img src="public/assets/logo_ssis.png" alt="한국사회보장정보원" class="w-32 h-20 object-contain opacity-75" />
-            <img src="public/assets/logo_medi.png" alt="한국보건산업진흥원" class="w-32 h-20 object-contain opacity-75" />
-            <img src="public/assets/logo_kkidi.jpg" alt="한국건강관리협회" class="w-32 h-20 object-contain opacity-75" />
-            <img src="public/assets/logo_female.png" alt="여성가족부" class="w-32 h-20 object-contain opacity-75" />
-            <img src="public/assets/logo_health.png" alt="보건복지부" class="w-32 h-20 object-contain opacity-75" />
-            <img src="public/assets/logo_hWell.png" alt="국민건강보험공단" class="w-32 h-20 object-contain opacity-75" />
-            <img src="public/assets/logo_labor.png" alt="고용노동부" class="w-32 h-20 object-contain opacity-75" />
-          </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <div class="mb-4"><img src="public/assets/madre_logo.png" alt="마드레 (Madre)" class="h-24"></div>
+          <p class="text-gray-400 mb-4">신뢰할 수 있는 산모신생아건강관리사 매칭 플랫폼</p>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">서비스</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li>산모 케어</li>
+            <li>신생아 케어</li>
+            <li>가사 지원</li>
+            <li>바우처 안내</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">회사 소개</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li>마드레 소개</li>
+            <li>관리사 등록</li>
+            <li>이용약관</li>
+            <li>개인정보처리방침</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">고객지원</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li>전화: 031-376-9906</li>
+            <li>휴대폰: 010-3376-9906</li>
+            <li>이메일: madre-@naver.com</li>
+            <li>평일 09:00 - 18:00</li>
+          </ul>
         </div>
       </div>
-    </section>
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <div class="mb-4">
-              <img src="public/assets/madre_logo.png" alt="마드레 (Madre)" class="h-24" />
-            </div>
-            <p class="text-gray-400 mb-4">신뢰할 수 있는 산모신생아건강관리사 매칭 플랫폼</p>
-          </div>
-          <div>
-            <h4 class="text-lg font-semibold mb-4">서비스</h4>
-            <ul class="space-y-2 text-gray-400">
-              <li>산모 케어</li>
-              <li>신생아 케어</li>
-              <li>가사 지원</li>
-              <li>바우처 안내</li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="text-lg font-semibold mb-4">회사 소개</h4>
-            <ul class="space-y-2 text-gray-400">
-              <li>마드레 소개</li>
-              <li>관리사 등록</li>
-              <li>이용약관</li>
-              <li>개인정보처리방침</li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="text-lg font-semibold mb-4">고객지원</h4>
-            <ul class="space-y-2 text-gray-400">
-              <li>전화: 031-376-9906</li>
-              <li>휴대폰: 010-3376-9906</li>
-              <li>이메일: madre-@naver.com</li>
-              <li>평일 09:00 - 18:00</li>
-            </ul>
-          </div>
-        </div>
-        <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 마드레(Madre). 모든 권리 보유.</p>
-        </div>
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+        <p>© 2024 마드레(Madre). 모든 권리 보유.</p>
       </div>
-    </footer>
-  </body>
+    </div>
+  </footer> 
+
+  
+</body>
+
 </html>
