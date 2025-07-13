@@ -17,39 +17,6 @@
     line-height: 1.6;
   }
 
-  /* Madre brand colors */
-  .bg-madre-blue {
-    background-color: var(--madre-blue);
-  }
-
-  .text-madre-blue {
-    color: var(--madre-blue);
-  }
-
-  .bg-madre-light-blue {
-    background-color: var(--madre-light-blue);
-  }
-
-  .text-madre-light-blue {
-    color: var(--madre-light-blue);
-  }
-
-  .bg-madre-accent {
-    background-color: var(--madre-accent);
-  }
-
-  .text-madre-accent {
-    color: var(--madre-accent);
-  }
-
-  .bg-madre-bg {
-    background-color: var(--madre-bg);
-  }
-
-  .bg-madre-blue-tint {
-    background-color: var(--madre-blue-tint);
-  }
-
   /* Smooth transitions */
   .transition-colors {
     transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
@@ -71,7 +38,6 @@
       font-size: 0.9rem;
     }
   }
-
 
   /* Custom scrollbar for Korean content */
   .scrollbar-thin::-webkit-scrollbar {
