@@ -59,7 +59,7 @@
 
   /* Government logos scrolling animation */
   .animate-scroll-vertical {
-    animation: scroll-vertical 15s linear infinite;
+    animation: scroll-vertical 20s linear infinite;
   }
 
   @keyframes scroll-vertical {
