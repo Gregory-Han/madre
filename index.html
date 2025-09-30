@@ -4,14 +4,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content="마드레 - 산모신생아 건강관리사 서비스">
+  <meta property="og:description" content="엄마와 아가의 충분한 회복을 위해 최선을 다하겠습니다">
+  <meta property="og:image" content="public/assets/logo_og_01.png">
+  <meta property="og:url" content="https://madre.kr">
   <title>마드레 - 산모신생아 건강관리사 서비스</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="icon" href="public/assets/madre_logo.png" />
   <link rel="stylesheet" href="index.css">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
     
+    * {
+      font-family: 'Pretendard', sans-serif;
+    }
+
     /* 부드러운 스크롤 애니메이션 */
     html {
       scroll-behavior: smooth;
@@ -52,7 +60,7 @@
       <div class="flex justify-between items-center py-4">
         <div class="flex items-center ml-4">
           <a href="#home" class="text-gray-700 hover:text-blue-600 transition-colors">
-            <img src="public/assets/madre_logo.png" alt="마드레 (Madre)" class="h-20 mt-2" />
+            <img src="public/assets/logo/madre_logo.png" alt="마드레 (Madre)" class="h-20 mt-2" />
           </a>
         </div>
         <nav class="hidden md:flex space-x-4">
@@ -610,8 +618,8 @@
           <h3 class="font-semibold text-gray-900 mb-2">오시는 길</h3>
           <div class="flex flex-col gap-1">
             <a target="_blank" href="https://map.naver.com/p/search/%ED%99%94%EC%84%B1%EC%8B%9C%20%EB%8F%99%ED%83%84%EC%A7%80%EC%84%B1%EB%A1%9C%2011%20705%ED%98%B8/address/14145679.6457103,4467649.0458933,%EA%B2%BD%EA%B8%B0%EB%8F%84%20%ED%99%94%EC%84%B1%EC%8B%9C%20%EB%8F%99%ED%83%84%EC%A7%80%EC%84%B1%EB%A1%9C%2011,new?c=15.00,0,0,0,dh&isCorrectAnswer=true">
-              <div class="flex justify-center ml-5 gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 fill-blue-600 pb-1" viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="2">
+              <div class="flex justify-center ml-4 gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 fill-blue-500 pb-1" viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="2">
                   <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/>
                   <circle cx="12" cy="10" r="3"/>
                 </svg>
@@ -620,7 +628,7 @@
             </a>
             <a target="_blank" href="https://map.naver.com/p/search/%EC%9A%A9%EC%9D%B8%EC%8B%9C%20%EC%A3%BD%EC%A0%84%EB%A1%9C%2010%206199%ED%98%B8/address/14149806.9494148,4483840.7971461,%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%9A%A9%EC%9D%B8%EC%8B%9C%20%EA%B8%B0%ED%9D%A5%EA%B5%AC%20%EC%A3%BD%EC%A0%84%EB%A1%9C%2010,new?c=15.00,0,0,0,dh&isCorrectAnswer=true">
               <div class="flex justify-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 fill-blue-600 pb-1" viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 fill-blue-500 pb-1" viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="2">
                   <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/>
                   <circle cx="12" cy="10" r="3"/>
                 </svg>
@@ -839,7 +847,7 @@
 </section>
  
   <!-- Footer -->
-  <footer class="bg-blue-50 text-white py-12">
+  <footer id="footer" class="bg-blue-50 text-white py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
@@ -860,8 +868,8 @@
           <ul class="space-y-2 text-gray-500">
             <li>마드레 소개</li>
             <li>관리사 등록</li>
-            <li>이용약관</li>
-            <li>개인정보처리방침</li>
+            <li><a href="public/terms/termsOfUse.html?open=true" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 transition-colors">이용약관</a></li>
+            <li><a href="public/terms/privacyPolicy.html?open=true" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 transition-colors">개인정보처리방침</a></li>
           </ul>
         </div>
         <div>
@@ -876,7 +884,7 @@
         </div>
       </div>
       <div class="border-t border-gray-300 mt-12 pt-8 text-center text-gray-400">
-        <p>©2024 ~ 마드레(Madre). 모든 권리 보유.</p>
+        <p>© 2024 ~ 마드레(Madre). 모든 권리 보유.</p>
       </div>
     </div>
   </footer>

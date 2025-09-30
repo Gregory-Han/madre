@@ -1,10 +1,10 @@
 
   body {
-    font-family: 'Inter', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    font-family: 'Pretendard', 'Inter', sans-serif;
   }
 
   /* Korean-specific typography */
@@ -13,7 +13,7 @@
     overflow-wrap: break-word;
   }
   .korean-text {
-    font-family: 'Noto Sans KR', 'Inter', sans-serif;
+    font-family: 'Pretendard', 'Inter', sans-serif;
     line-height: 1.6;
   }
 
