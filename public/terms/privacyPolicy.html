@@ -11,6 +11,70 @@
     
     * { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif; }
 
+    @media print {
+      .no-print { display: none !important; }
+      a[href^="#"]::after { content: ""; }
+
+      /* Reset body for printing */
+      body {
+        background: #fff !important;
+        overflow: visible !important;
+      }
+
+      /* Hide the main page button if it's there */
+      body > button.no-print {
+        display: none !important;
+      }
+
+      /* Make the dialog content the only thing visible */
+      #dialog-overlay {
+        position: static !important;
+        display: block !important;
+        background: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        padding: 0 !important;
+      }
+      
+      .dialog-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        max-h: none !important;
+        height: auto !important;
+        box-shadow: none !important;
+        border: none !important;
+        display: block !important;
+        padding: 0 !important;
+      }
+
+      /* The main content area should not scroll */
+      main.custom-scrollbar {
+        overflow-y: visible !important;
+        height: auto !important;
+        padding: 2rem !important;
+      }
+      
+      /* Hide the dialog's own header, notice, and TOC for a cleaner print */
+      .dialog-content > header,
+      .dialog-content > section.bg-amber-50,
+      .dialog-content > main > nav {
+          display: none !important;
+      }
+      
+      /* Add a title for the printout */
+      main.custom-scrollbar::before {
+        content: '산모·신생아 건강관리사 개인정보처리지침';
+        display: block;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 1rem;
+      }
+    }
+
+    /* 다이얼로그 애니메이션 */
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -35,6 +99,7 @@
       animation: slideUp 0.3s ease-out;
     }
 
+    /* 스크롤바 커스텀 */
     .custom-scrollbar::-webkit-scrollbar {
       width: 8px;
     }
@@ -53,6 +118,7 @@
       background: #94a3b8;
     }
 
+    /* 가독성 개선 */
     .prose-enhanced p {
       line-height: 1.8;
       margin-bottom: 1.25rem;
@@ -80,74 +146,21 @@
       margin-bottom: 1rem;
       line-height: 1.4;
     }
-
-    @media print {
-      .no-print { display: none !important; }
-      a[href^="#"]::after { content: ""; }
-
-      body {
-        background: #fff !important;
-        overflow: visible !important;
-      }
-
-      body > button.no-print {
-        display: none !important;
-      }
-
-      #dialog-overlay {
-        position: static !important;
-        display: block !important;
-        background: none !important;
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-        padding: 0 !important;
-      }
-      
-      .dialog-content {
-        width: 100% !important;
-        max-width: 100% !important;
-        max-h: none !important;
-        height: auto !important;
-        box-shadow: none !important;
-        border: none !important;
-        display: block !important;
-        padding: 0 !important;
-      }
-
-      main.custom-scrollbar {
-        overflow-y: visible !important;
-        height: auto !important;
-        padding: 2rem !important;
-      }
-      
-      .dialog-content > header,
-      .dialog-content > section.bg-amber-50,
-      .dialog-content > main > nav {
-          display: none !important;
-      }
-      
-      main.custom-scrollbar::before {
-        content: '산모·신생아 건강관리사 개인정보처리지침';
-        display: block;
-        text-align: center;
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 2rem;
-        border-bottom: 2px solid #eee;
-        padding-bottom: 1rem;
-      }
-    }
   </style>
 </head>
 <body class="min-h-full bg-gradient-to-br from-blue-50 to-indigo-50 text-zinc-900 antialiased flex items-center justify-center p-4">
+  <!-- 다이얼로그 열기 버튼 -->
   <button onclick="openDialog()" class="no-print px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
     개인정보처리지침 보기
   </button>
 
+  <!-- 다이얼로그 오버레이 -->
   <div id="dialog-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden dialog-overlay" onclick="closeDialog()">
+    <!-- 다이얼로그 컨텐츠 -->
     <div class="flex items-center justify-center min-h-screen p-4">
       <div onclick="event.stopPropagation()" class="dialog-content bg-white rounded-3xl shadow-2xl w-full max-w-5xl max-h-[90vh] flex flex-col">
         
+        <!-- Header -->
         <header class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-t-3xl px-6 sm:px-8 py-6 flex-shrink-0">
           <div class="flex items-start justify-between gap-4">
             <div class="flex-1">
@@ -157,99 +170,176 @@
             </div>
             <div class="flex gap-2">
               <button onclick="window.print()" class="no-print p-2 bg-white/10 hover:bg-white/20 rounded-xl transition-colors" title="인쇄/저장">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" /></svg>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                </svg>
               </button>
               <button onclick="closeDialog()" class="no-print p-2 bg-white/10 hover:bg-white/20 rounded-xl transition-colors" title="닫기">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
               </button>
             </div>
           </div>
         </header>
 
+        <!-- Notice -->
         <section class="bg-amber-50 border-b border-amber-200 px-6 sm:px-8 py-4 flex-shrink-0">
           <div class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" /></svg>
+            <svg class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+            </svg>
             <p class="text-sm text-amber-900 leading-relaxed">
-              본 지침은 「개인정보 보호법」 등 관계 법령을 준수하며, 산모·신생아 건강관리 서비스 제공을 위한 최소한의 개인정보만을 적법하게 처리합니다.
+              본 지침은 「개인정보 보호법」등 관계 법령을 준수하며, 산모·신생아 건강관리 서비스 제공을 위한 최소한의 개인정보만을 적법하게 처리합니다.
             </p>
           </div>
         </section>
 
-        <main class="flex-1 overflow-y-auto custom-scrollbar px-6 sm:px-8 py-6 prose-enhanced">
-          <nav aria-label="목차" class="mb-10 rounded-2xl border-2 border-blue-100 bg-gradient-to-br from-blue-50 to-indigo-50 p-6 shadow-lg">
-            <div class="flex items-center gap-2 mb-4">
-              <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+        <!-- 스크롤 가능한 컨텐츠 영역 -->
+        <main class="flex-1 overflow-y-auto custom-scrollbar px-6 sm:px-8 py-6 prose-enhanced prose prose-zinc sm:prose-lg">
+          <nav aria-label="목차" class="not-prose mb-2 rounded-2xl border-2 border-blue-100 bg-gradient-to-br from-blue-50 to-indigo-50 p-6 shadow-lg">
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-blue-600 mt-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
               <h2 class="text-lg font-bold text-blue-900">목차</h2>
             </div>
-            <ol class="grid gap-2.5 text-sm sm:grid-cols-2">
-              <li><a href="#scope" class="block py-2 px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">1. 총칙 및 적용범위</a></li>
-              <li><a href="#items" class="block py-2 px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">2. 처리하는 개인정보 항목</a></li>
-              <li><a href="#collection" class="block py-2 px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">3. 수집 방법</a></li>
-              <li><a href="#purpose" class="block py-2 px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">4. 처리 목적</a></li>
-              <li><a href="#retention" class="block py-2 px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">5. 보유·이용기간</a></li>
-              <li><a href="#sharing" class="block py-2 px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">6. 제3자 제공</a></li>
-              <li><a href="#outsourcing" class="block py-2 px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">7. 처리업무의 위탁</a></li>
-              <li><a href="#sensitive" class="block py-2 px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">8. 민감정보 처리</a></li>
-              <li><a href="#rights" class="block py-2 px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">9. 이용자 권리</a></li>
-              <li><a href="#auto" class="block py-2 px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">10. 자동수집 장치</a></li>
-              <li><a href="#transfer" class="block py-2 px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">11. 국외 이전</a></li>
-              <li><a href="#security" class="block py-2 px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">12. 안전성 확보조치</a></li>
-              <li><a href="#destruction" class="block py-2 px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">13. 파기 절차·방법</a></li>
-              <li><a href="#cctv" class="block py-2 px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">14. 영상정보처리기기</a></li>
-              <li><a href="#dpo" class="block py-2 px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">15. 개인정보 보호책임자</a></li>
-              <li><a href="#change" class="block py-2 px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">16. 고지 의무</a></li>
+            <ol class="grid gap-2.5 sm:grid-cols-2">
+              <li><a href="#scope" class="block px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">1. 총칙 및 적용범위</a></li>
+              <li><a href="#items" class="block px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">2. 처리하는 개인정보 항목</a></li>
+              <li><a href="#collection" class="block px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">3. 수집 방법</a></li>
+              <li><a href="#purpose" class="block px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">4. 처리 목적</a></li>
+              <li><a href="#retention" class="block px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">5. 보유·이용기간</a></li>
+              <li><a href="#sharing" class="block px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">6. 제3자 제공</a></li>
+              <li><a href="#outsourcing" class="block px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">7. 처리업무의 위탁</a></li>
+              <li><a href="#sensitive" class="block px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">8. 민감정보 처리</a></li>
+              <li><a href="#rights" class="block px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">9. 이용자 권리</a></li>
+              <li><a href="#auto" class="block px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">10. 자동수집 장치</a></li>
+              <li><a href="#transfer" class="block px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">11. 국외 이전</a></li>
+              <li><a href="#security" class="block px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">12. 안전성 확보조치</a></li>
+              <li><a href="#destruction" class="block px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">13. 파기 절차·방법</a></li>
+              <li><a href="#cctv" class="block px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">14. 영상정보처리기기</a></li>
+              <li><a href="#dpo" class="block px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">15. 개인정보 보호책임자</a></li>
+              <li><a href="#change" class="block px-3 text-zinc-700 hover:text-blue-600 hover:bg-white rounded-lg transition-colors">16. 고지 의무</a></li>
             </ol>
           </nav>
 
+          <!-- 1 -->
           <section id="scope" class="scroll-mt-6">
             <h2 class="text-2xl font-bold text-blue-900 mb-4 pb-3 border-b-2 border-blue-200">1. 총칙 및 적용범위</h2>
-            <p class="text-zinc-700 leading-relaxed">마드레(이하 "회사")는 산모·신생아 건강관리 서비스(방문·연계·고객지원 포함)와 관련하여 수집·이용되는 모든 개인정보에 본 지침을 적용합니다.</p>
-            <p class="text-zinc-700 leading-relaxed">근로자(건강관리사), 지원자, 고객(산모·가족) 및 웹사이트/앱 이용자에게 적용됩니다.</p>
+            <p class="text-zinc-700 leading-relaxed">
+              마드레(이하 "회사")는 산모·신생아 건강관리 서비스(방문·연계·고객지원 포함)와 관련하여 수집·이용되는 모든 개인정보에 본 지침을 적용합니다.
+            </p>
+            <p class="text-zinc-700 leading-relaxed">
+              근로자(건강관리사), 지원자, 고객(산모·가족) 및 웹사이트/앱 이용자에게 적용됩니다.
+            </p>
           </section>
 
+          <!-- 2 -->
           <section id="items" class="scroll-mt-6">
             <h2 class="text-2xl font-bold text-blue-900 mb-4 pb-3 border-b-2 border-blue-200">2. 처리하는 개인정보 항목</h2>
-            <h3 class="text-xl font-semibold text-indigo-800 mb-3 flex items-center gap-2"><span class="w-7 h-7 bg-indigo-100 text-indigo-700 rounded-lg flex items-center justify-center text-sm">1</span>고객(산모·가족)</h3>
+
+            <h3 class="text-xl font-semibold text-indigo-800 mb-3 flex items-center gap-2">
+              <span class="w-7 h-7 bg-indigo-100 text-indigo-700 rounded-lg flex items-center justify-center text-sm">1</span>
+              고객(산모·가족)
+            </h3>
             <ul class="space-y-3 mb-6 bg-slate-50 rounded-xl p-5 border border-slate-200">
-              <li class="flex items-start gap-3"><span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span><div><strong class="text-blue-900">식별·연락:</strong> <span class="text-zinc-700">성명, 생년월일, 성별, 휴대전화, 주소, 이메일</span></div></li>
-              <li class="flex items-start gap-3"><span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span><div><strong class="text-blue-900">서비스:</strong> <span class="text-zinc-700">출산(예정)일, 분만 유형, 보호자 유무, 서비스 희망 일정·장소, 방문 기록</span></div></li>
-              <li class="flex items-start gap-3"><span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span><div><strong class="text-blue-900">결제·정산:</strong> <span class="text-zinc-700">결제수단 식별(카드사·승인번호 등), 영수증·세금계산서 발급 정보</span></div></li>
-              <li class="flex items-start gap-3"><span class="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0"></span><div><strong class="text-amber-900">민감정보(명시적 동의 시):</strong> <span class="text-zinc-700">산모 회복 관련 주의사항, 상처·통증 관리 필요사항, 신생아 상태(예: 황달 여부, 수유 형태, 알레르기 등 최소 범위)</span></div></li>
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                <div><strong class="text-blue-900">식별·연락:</strong> <span class="text-zinc-700">성명, 생년월일, 성별, 휴대전화, 주소, 이메일</span></div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                <div><strong class="text-blue-900">서비스:</strong> <span class="text-zinc-700">출산(예정)일, 분만 유형, 보호자 유무, 서비스 희망 일정·장소, 방문 기록</span></div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                <div><strong class="text-blue-900">결제·정산:</strong> <span class="text-zinc-700">결제수단 식별(카드사·승인번호 등), 영수증·세금계산서 발급 정보</span></div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0"></span>
+                <div><strong class="text-amber-900">민감정보(명시적 동의 시):</strong> <span class="text-zinc-700">산모 회복 관련 주의사항, 상처·통증 관리 필요사항, 신생아 상태(예: 황달 여부, 수유 형태, 알레르기 등 최소 범위)</span></div>
+              </li>
             </ul>
-            <h3 class="text-xl font-semibold text-indigo-800 mb-3 flex items-center gap-2"><span class="w-7 h-7 bg-indigo-100 text-indigo-700 rounded-lg flex items-center justify-center text-sm">2</span>건강관리사(종사자/지원자)</h3>
+
+            <h3 class="text-xl font-semibold text-indigo-800 mb-3 flex items-center gap-2">
+              <span class="w-7 h-7 bg-indigo-100 text-indigo-700 rounded-lg flex items-center justify-center text-sm">2</span>
+              건강관리사(종사자/지원자)
+            </h3>
             <ul class="space-y-3 mb-6 bg-slate-50 rounded-xl p-5 border border-slate-200">
-              <li class="flex items-start gap-3"><span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span><div><strong class="text-blue-900">인사·배치:</strong> <span class="text-zinc-700">성명, 생년월일, 연락처, 주소, 경력, 자격·수료 여부</span></div></li>
-              <li class="flex items-start gap-3"><span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span><div><strong class="text-blue-900">신원·적합성:</strong> <span class="text-zinc-700">교육 이수 내역, 건강진단서 확인 여부, 범죄경력 회신서(법령 허용 범위)</span></div></li>
-              <li class="flex items-start gap-3"><span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span><div><strong class="text-blue-900">노무·정산:</strong> <span class="text-zinc-700">계좌정보, 근무기록, 4대보험 관련 정보(해당 시)</span></div></li>
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                <div><strong class="text-blue-900">인사·배치:</strong> <span class="text-zinc-700">성명, 생년월일, 연락처, 주소, 경력, 자격·수료 여부</span></div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                <div><strong class="text-blue-900">신원·적합성:</strong> <span class="text-zinc-700">교육 이수 내역, 건강진단서 확인 여부, 범죄경력 회신서(법령 허용 범위)</span></div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                <div><strong class="text-blue-900">노무·정산:</strong> <span class="text-zinc-700">계좌정보, 근무기록, 4대보험 관련 정보(해당 시)</span></div>
+              </li>
             </ul>
-            <h3 class="text-xl font-semibold text-indigo-800 mb-3 flex items-center gap-2"><span class="w-7 h-7 bg-indigo-100 text-indigo-700 rounded-lg flex items-center justify-center text-sm">3</span>웹/앱 이용 시</h3>
+
+            <h3 class="text-xl font-semibold text-indigo-800 mb-3 flex items-center gap-2">
+              <span class="w-7 h-7 bg-indigo-100 text-indigo-700 rounded-lg flex items-center justify-center text-sm">3</span>
+              웹/앱 이용 시
+            </h3>
             <ul class="space-y-3 bg-slate-50 rounded-xl p-5 border border-slate-200">
-              <li class="flex items-start gap-3"><span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span><span class="text-zinc-700">쿠키/접속기록, IP, 기기정보, 서비스 이용기록(예약/문의/상담 이력 등)</span></li>
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 bg-blue-500 rounded-full my-2 flex-shrink-0"></span>
+                <span class="text-zinc-700">쿠키/접속기록, IP, 기기정보, 서비스 이용기록(예약/문의/상담 이력 등)</span>
+              </li>
             </ul>
           </section>
 
+          <!-- 3 -->
           <section id="collection" class="scroll-mt-6">
-            <h2>3. 수집 방법</h2>
-            <ul>
-              <li>홈페이지·모바일(예약/문의/상담/채용), 고객센터(전화/메신저), 계약서 및 동의서</li>
-              <li>서비스 제공 과정에서의 방문 기록·업무일지, 교육 기관 및 자격 발급처 확인(건강관리사)</li>
-              <li>결제 대행사(PG) 연동 등을 통한 결제 정보 수집</li>
+            <h2 class="text-2xl font-bold text-blue-900 mb-4 pb-3 border-b-2 border-blue-200">3. 수집 방법</h2>
+            <ul class="space-y-3 bg-slate-50 rounded-xl p-5 border border-slate-200">
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                <span class="text-zinc-700">홈페이지·모바일(예약/문의/상담/채용), 고객센터(전화/메신저), 계약서 및 동의서</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                <span class="text-zinc-700">서비스 제공 과정에서의 방문 기록·업무일지, 교육 기관 및 자격 발급처 확인(건강관리사)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                <span class="text-zinc-700">결제 대행사(PG) 연동 등을 통한 결제 정보 수집</span>
+              </li>
             </ul>
           </section>
 
+          <!-- 4 -->
           <section id="purpose" class="scroll-mt-6">
-            <h2>4. 처리 목적</h2>
-            <ul>
-              <li>서비스 예약·배정·제공, 고객상담 및 불만처리, 안전관리, 품질관리</li>
-              <li>본인확인, 요금 청구·정산, 영수증/세금계산서 발급, 법정 의무 이행</li>
-              <li>건강관리사 채용·배치·교육·노무관리, 사고·분쟁 대응 및 민원 처리</li>
-              <li>웹/앱 운영, 보안, 서비스 고도화(이용행태 분석 시 식별 불가 통계로 처리)</li>
+            <h2 class="text-2xl font-bold text-blue-900 mb-4 pb-3 border-b-2 border-blue-200">4. 처리 목적</h2>
+            <ul class="space-y-3 bg-slate-50 rounded-xl p-5 border border-slate-200">
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                <span class="text-zinc-700">서비스 예약·배정·제공, 고객상담 및 불만처리, 안전관리, 품질관리</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                <span class="text-zinc-700">본인확인, 요금 청구·정산, 영수증/세금계산서 발급, 법정 의무 이행</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                <span class="text-zinc-700">건강관리사 채용·배치·교육·노무관리, 사고·분쟁 대응 및 민원 처리</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                <span class="text-zinc-700">웹/앱 운영, 보안, 서비스 고도화(이용행태 분석 시 식별 불가 통계로 처리)</span>
+              </li>
             </ul>
           </section>
 
+          <!-- 5 -->
           <section id="retention" class="scroll-mt-6">
-            <h2>5. 보유·이용기간</h2>
-            <p>원칙적으로 목적 달성 후 지체 없이 파기합니다. 다만 다음 기간 동안 법령 또는 분쟁 대비 목적 등으로 보존합니다.</p>
+            <h2 class="text-2xl font-bold text-blue-900 mb-4 pb-3 border-b-2 border-blue-200">5. 보유·이용기간</h2>
+            <p class="text-zinc-700 leading-relaxed mb-4">원칙적으로 목적 달성 후 지체 없이 파기합니다. 다만 다음 기간 동안 법령 또는 분쟁 대비 목적 등으로 보존합니다.</p>
+
             <div class="not-prose overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
               <table class="w-full text-sm">
                 <thead class="bg-zinc-50 text-zinc-700">
@@ -303,91 +393,139 @@
             <p class="mt-3 text-sm text-zinc-600">※ 실제 보존기간은 법령 개정 및 회사 내부 규정에 따라 조정될 수 있습니다.</p>
           </section>
 
+          <!-- 6 -->
           <section id="sharing" class="scroll-mt-6">
-            <h2>6. 제3자 제공</h2>
-            <p>원칙적으로 정보주체의 동의 없이 제3자에게 제공하지 않습니다. 다만 법령에 근거가 있거나 수사기관의 적법한 절차에 따른 요구, 지자체 바우처 집행기관 등 관계 기관의 집행·정산을 위해 필요한 범위에서 제공할 수 있습니다. 제공 시 목적·항목·수신자·보유기간을 사전에 고지하고 동의를 받습니다(법령 예외 제외).</p>
+            <h2 class="text-2xl font-bold text-blue-900 mb-4 pb-3 border-b-2 border-blue-200">6. 제3자 제공</h2>
+            <p class="text-zinc-700 leading-relaxed">원칙적으로 정보주체의 동의 없이 제3자에게 제공하지 않습니다. 다만 법령에 근거가 있거나 수사기관의 적법한 절차에 따른 요구, 지자체 바우처 집행기관 등 관계 기관의 집행·정산을 위해 필요한 범위에서 제공할 수 있습니다. 제공 시 목적·항목·수신자·보유기간을 사전에 고지하고 동의를 받습니다(법령 예외 제외).</p>
           </section>
 
+          <!-- 7 -->
           <section id="outsourcing" class="scroll-mt-6">
-            <h2>7. 처리업무의 위탁</h2>
-            <p>효율적 업무처리를 위해 아래와 같이 일부 업무를 위탁할 수 있습니다. 위탁 시 개인정보 보호를 위해 「개인정보 처리업무 위탁계약」을 체결하고 수탁자를 관리·감독합니다.</p>
-            <ul>
-              <li>예시) 결제처리(PG), 문자·알림 발송, 클라우드·백업, 고객센터 운영</li>
+            <h2 class="text-2xl font-bold text-blue-900 mb-4 pb-3 border-b-2 border-blue-200">7. 처리업무의 위탁</h2>
+            <p class="text-zinc-700 leading-relaxed mb-4">효율적 업무처리를 위해 아래와 같이 일부 업무를 위탁할 수 있습니다. 위탁 시 개인정보 보호를 위해 「개인정보 처리업무 위탁계약」을 체결하고 수탁자를 관리·감독합니다.</p>
+            <ul class="space-y-3 bg-slate-50 rounded-xl p-5 border border-slate-200 mb-3">
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                <span class="text-zinc-700">예시) 결제처리(PG), 문자·알림 발송, 클라우드·백업, 고객센터 운영</span>
+              </li>
             </ul>
             <p class="text-sm text-zinc-600">※ 실제 수탁자, 위탁 내용, 보유·이용기간은 홈페이지에 최신 고지로 안내합니다.</p>
           </section>
 
+          <!-- 8 -->
           <section id="sensitive" class="scroll-mt-6">
-            <h2>8. 민감정보 처리</h2>
-            <p>서비스 안전을 위해 불가피한 최소 범위의 건강정보를 <strong>명시적 동의</strong>에 근거하여 처리합니다. 동의 거부 시 해당 항목을 전제로 한 일부 서비스 제공이 제한될 수 있습니다. 민감정보는 접근 권한을 최소화하고 분리 보관하며 목적 달성 즉시 파기합니다.</p>
+            <h2 class="text-2xl font-bold text-blue-900 mb-4 pb-3 border-b-2 border-blue-200">8. 민감정보 처리</h2>
+            <p class="text-zinc-700 leading-relaxed">서비스 안전을 위해 불가피한 최소 범위의 건강정보를 <strong>명시적 동의</strong>에 근거하여 처리합니다. 동의 거부 시 해당 항목을 전제로 한 일부 서비스 제공이 제한될 수 있습니다. 민감정보는 접근 권한을 최소화하고 분리 보관하며 목적 달성 즉시 파기합니다.</p>
           </section>
 
+          <!-- 9 -->
           <section id="rights" class="scroll-mt-6">
-            <h2>9. 이용자 및 법정대리인의 권리</h2>
-            <ul>
-              <li>개인정보 열람·정정·삭제·처리정지 요구 및 동의 철회</li>
-              <li>만 14세 미만 아동의 경우 법정대리인 동의 및 권리 행사</li>
-              <li>권리 행사는 고객센터(이메일/전화/우편)로 신청 가능하며, 대리인 제출 시 위임장 등 확인 절차를 거칩니다.</li>
+            <h2 class="text-2xl font-bold text-blue-900 mb-4 pb-3 border-b-2 border-blue-200">9. 이용자 및 법정대리인의 권리</h2>
+            <ul class="space-y-3 bg-slate-50 rounded-xl p-5 border border-slate-200">
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                <span class="text-zinc-700">개인정보 열람·정정·삭제·처리정지 요구 및 동의 철회</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                <span class="text-zinc-700">만 14세 미만 아동의 경우 법정대리인 동의 및 권리 행사</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                <span class="text-zinc-700">권리 행사는 고객센터(이메일/전화/우편)로 신청 가능하며, 대리인 제출 시 위임장 등 확인 절차를 거칩니다.</span>
+              </li>
             </ul>
           </section>
 
+          <!-- 10 -->
           <section id="auto" class="scroll-mt-6">
-            <h2>10. 자동수집 장치(쿠키 등)</h2>
-            <p>맞춤형 서비스 제공 및 보안 강화를 위해 쿠키를 사용할 수 있습니다. 브라우저 설정에서 쿠키 저장을 거부하거나 삭제할 수 있으나, 일부 서비스 이용에 제한이 있을 수 있습니다.</p>
+            <h2 class="text-2xl font-bold text-blue-900 mb-4 pb-3 border-b-2 border-blue-200">10. 자동수집 장치(쿠키 등)</h2>
+            <p class="text-zinc-700 leading-relaxed">맞춤형 서비스 제공 및 보안 강화를 위해 쿠키를 사용할 수 있습니다. 브라우저 설정에서 쿠키 저장을 거부하거나 삭제할 수 있으나, 일부 서비스 이용에 제한이 있을 수 있습니다.</p>
           </section>
 
+          <!-- 11 -->
           <section id="transfer" class="scroll-mt-6">
-            <h2>11. 국외 이전</h2>
-            <p>원칙적으로 개인정보를 국외로 이전하지 않습니다. 국외 클라우드 사용 등 이전이 필요한 경우, 이전받는 자·국가·이전 일시·항목·목적·보유기간을 개별 고지하고 필요한 동의를 받습니다.</p>
+            <h2 class="text-2xl font-bold text-blue-900 mb-4 pb-3 border-b-2 border-blue-200">11. 국외 이전</h2>
+            <p class="text-zinc-700 leading-relaxed">원칙적으로 개인정보를 국외로 이전하지 않습니다. 국외 클라우드 사용 등 이전이 필요한 경우, 이전받는 자·국가·이전 일시·항목·목적·보유기간을 개별 고지하고 필요한 동의를 받습니다.</p>
           </section>
 
+          <!-- 12 -->
           <section id="security" class="scroll-mt-6">
-            <h2>12. 안전성 확보조치</h2>
-            <ul>
-              <li><strong>관리적</strong>: 내부관리계획 수립·시행, 정기 교육, 최소 권한 원칙, 접속기록 점검</li>
-              <li><strong>기술적</strong>: 암호화 저장(중요 정보), 전송 구간 암호화(HTTPS/TLS), 접근통제, 백신·취약점 점검</li>
-              <li><strong>물리적</strong>: 전산실·자료보관구역 접근 통제, 문서 보안 보관함</li>
+            <h2 class="text-2xl font-bold text-blue-900 mb-4 pb-3 border-b-2 border-blue-200">12. 안전성 확보조치</h2>
+            <ul class="space-y-3 bg-slate-50 rounded-xl p-5 border border-slate-200">
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                <div class="text-zinc-700"><strong>관리적</strong>: 내부관리계획 수립·시행, 정기 교육, 최소 권한 원칙, 접속기록 점검</div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                <div class="text-zinc-700"><strong>기술적</strong>: 암호화 저장(중요 정보), 전송 구간 암호화(HTTPS/TLS), 접근통제, 백신·취약점 점검</div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                <div class="text-zinc-700"><strong>물리적</strong>: 전산실·자료보관구역 접근 통제, 문서 보안 보관함</div>
+              </li>
             </ul>
           </section>
 
+          <!-- 13 -->
           <section id="destruction" class="scroll-mt-6">
-            <h2>13. 개인정보의 파기 절차·방법</h2>
-            <ul>
-              <li><strong>절차</strong>: 보유기간 경과 또는 처리 목적 달성 시 별도 DB 또는 문서 보관함으로 옮겨 법령 및 내부 규정에 따라 지체 없이 파기</li>
-              <li><strong>방법</strong>: 전자파일은 복구 불가한 기술적 방법으로, 종이 문서는 분쇄 또는 소각</li>
+            <h2 class="text-2xl font-bold text-blue-900 mb-4 pb-3 border-b-2 border-blue-200">13. 개인정보의 파기 절차·방법</h2>
+            <ul class="space-y-3 bg-slate-50 rounded-xl p-5 border border-slate-200">
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                <div class="text-zinc-700"><strong>절차</strong>: 보유기간 경과 또는 처리 목적 달성 시 별도 DB 또는 문서 보관함으로 옮겨 법령 및 내부 규정에 따라 지체 없이 파기</div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                <div class="text-zinc-700"><strong>방법</strong>: 전자파일은 복구 불가한 기술적 방법으로, 종이 문서는 분쇄 또는 소각</div>
+              </li>
             </ul>
           </section>
 
+          <!-- 14 -->
           <section id="cctv" class="scroll-mt-6">
-            <h2>14. 영상정보처리기기 운영·관리</h2>
-            <p>회사는 자체 영업장 내 안전 목적의 최소 범위를 제외하고 고객 가정 내 CCTV를 설치·운영하지 않습니다. <strong>고객 가정에 설치된 CCTV</strong>에 건강관리사가 영상에 포함될 수 있는 경우, 안내 요청 및 가림 조치 등 안전한 근무 환경을 협의합니다.</p>
+            <h2 class="text-2xl font-bold text-blue-900 mb-4 pb-3 border-b-2 border-blue-200">14. 영상정보처리기기 운영·관리</h2>
+            <p class="text-zinc-700 leading-relaxed">회사는 자체 영업장 내 안전 목적의 최소 범위를 제외하고 고객 가정 내 CCTV를 설치·운영하지 않습니다. <strong>고객 가정에 설치된 CCTV</strong>에 건강관리사가 영상에 포함될 수 있는 경우, 안내 요청 및 가림 조치 등 안전한 근무 환경을 협의합니다.</p>
           </section>
 
+          <!-- 15 -->
           <section id="dpo" class="scroll-mt-6">
-            <h2>15. 개인정보 보호책임자 및 연락처</h2>
-            <div class="not-prose mt-2 grid gap-2 rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
-              <p><strong>개인정보 보호책임자</strong>: dl</p>
-              <p><strong>연락처</strong>: (전화번호) / (이메일)</p>
-              <p><strong>주소</strong>: (사업장 주소)</p>
-              <p class="text-sm text-zinc-600">※ 권리 행사, 침해 신고·상담은 개인정보보호 포털(privacy.go.kr) 및 한국인터넷진흥원(KISA) 등 공공기관을 통해서도 가능합니다.</p>
+            <h2 class="text-2xl font-bold text-blue-900 mb-4 pb-3 border-b-2 border-blue-200">15. 개인정보 보호책임자 및 연락처</h2>
+            <div class="not-prose mt-2 space-y-3 rounded-2xl border-2 border-blue-100 bg-gradient-to-br from-blue-50 to-indigo-50 p-6 shadow-lg">
+              <div class="flex flex-col sm:flex-row sm:gap-2">
+                <strong class="text-blue-900 min-w-[160px]">개인정보 보호책임자:</strong>
+                <span class="text-zinc-800">이선숙</span>
+              </div>
+              <div class="flex flex-col sm:flex-row sm:gap-2">
+                <strong class="text-blue-900 min-w-[160px]">연락처:</strong>
+                <span class="text-zinc-800">(031-376-9906) / (madre-@naver.com)</span>
+              </div>
+              <div class="flex flex-col sm:flex-row sm:gap-2">
+                <strong class="text-blue-900 min-w-[160px]">주소:</strong>
+                <span class="text-zinc-800">화성시 동탄지성로 11 705호</span>
+              </div>
+              <div class="flex flex-col sm:flex-row sm:gap-2">
+                <strong class="text-blue-900 min-w-[160px]">주소:</strong>
+                <span class="text-zinc-800">용인시 죽전로 10 6199호</span>
+              </div>
+              <p class="text-sm text-zinc-600 mt-2 pt-3 border-t border-blue-200">※ 권리 행사, 침해 신고·상담은 개인정보보호 포털(privacy.go.kr) 및 한국인터넷진흥원(KISA) 등 공공기관을 통해서도 가능합니다.</p>
             </div>
           </section>
 
+          <!-- 16 -->
           <section id="change" class="scroll-mt-6">
-            <h2>16. 고지 의무</h2>
-            <p>법령, 정책 또는 보안 기술의 변경에 따라 내용이 추가·삭제·수정되는 경우, 시행 최소 7일 전(중요 변경은 30일 전) 홈페이지 공지 및 개별 고지(가능한 경우)를 실시합니다.</p>
+            <h2 class="text-2xl font-bold text-blue-900 mb-4 pb-3 border-b-2 border-blue-200">16. 고지 의무</h2>
+            <p class="text-zinc-700 leading-relaxed">법령, 정책 또는 보안 기술의 변경에 따라 내용이 추가·삭제·수정되는 경우, 시행 최소 7일 전(중요 변경은 30일 전) 홈페이지 공지 및 개별 고지(가능한 경우)를 실시합니다.</p>
           </section>
 
+          <!-- Footer -->
           <hr class="my-10 border-zinc-200">
           <section class="text-sm text-zinc-600">
-            <p>© <strong>마드레</strong>. 모든 권리 보유.</p>
+            <p>ⓒ <strong>마드레</strong>. 모든 권리 보유.</p>
             <p class="mt-1">본 지침은 개인정보 보호법 등 관계 법령을 기준으로 작성되었으며, 실제 운영에 맞추어 수탁자·제공처·국외이전 여부 등을 최신화하여 게시하십시오.</p>
           </section>
         </main>
-
-      </div>
-    </div>
-  </div>
 
   <script>
     const dialogOverlay = document.getElementById('dialog-overlay');
@@ -407,6 +545,7 @@
       }
     }
 
+    // Open dialog if query param is set
     window.addEventListener('load', () => {
       const urlParams = new URLSearchParams(window.location.search);
       if (urlParams.get('open') === 'true') {
@@ -414,6 +553,7 @@
       }
     });
 
+    // (선택) 해시가 변경되면 스크롤 위치에 여유를 두기
     window.addEventListener('hashchange', () => window.scrollBy(0, -8));
   </script>
 </body>
