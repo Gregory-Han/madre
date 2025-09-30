@@ -11,6 +11,37 @@
   <link rel="stylesheet" href="index.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+    
+    /* 부드러운 스크롤 애니메이션 */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* 톱바 마진을 고려한 스크롤 오프셋 */
+    section[id] {
+      scroll-margin-top: 120px;
+    }
+    
+    /* 스크롤 애니메이션을 위한 CSS */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .fade-in-up {
+      animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    /* 섹션별 애니메이션 지연 */
+    .animate-delay-100 { animation-delay: 0.15s; }
+    .animate-delay-200 { animation-delay: 0.3s; }
+    .animate-delay-300 { animation-delay: 0.45s; }
   </style>
 </head>
 
@@ -20,7 +51,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center py-4">
         <div class="flex items-center ml-4">
-          <a href="#services" class="text-gray-700 hover:text-blue-600 transition-colors">
+          <a href="#home" class="text-gray-700 hover:text-blue-600 transition-colors">
             <img src="public/assets/madre_logo.png" alt="마드레 (Madre)" class="h-20 mt-2" />
           </a>
         </div>
@@ -44,7 +75,7 @@
     </div>
   </header>
   <!-- Hero Section -->
-  <section class="py-20 bg-gradient-to-b from-blue-50 to-white">
+  <section id="home" class="py-20 bg-gradient-to-b from-blue-50 to-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
@@ -99,9 +130,9 @@
     </div>
   </section>
   <!-- Services Overview -->
-  <section id="services" class="pt-40 pb-20 bg-white">
+  <section id="services" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
+      <div class="text-center mb-16 fade-in-up">
         <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
           마드레가 제공하는 전문 서비스
         </h2>
@@ -111,7 +142,7 @@
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div data-replit-metadata="client/src/pages/landing.tsx:172:12" data-component-name="Card"
-          class="rounded-lg border text-card-foreground shadow-sm bg-blue-50 border-blue-200">
+          class="rounded-lg border text-card-foreground shadow-sm bg-blue-50 border-blue-200 fade-in-up animate-delay-100">
           <div data-replit-metadata="client/src/pages/landing.tsx:173:14" data-component-name="CardHeader"
             class="flex flex-col space-y-1.5 p-6">
             <div data-replit-metadata="client/src/pages/landing.tsx:174:16" data-component-name="div"
@@ -164,7 +195,7 @@
           </div>
         </div>
         <div data-replit-metadata="client/src/pages/landing.tsx:203:12" data-component-name="Card"
-          class="rounded-lg border text-card-foreground shadow-sm bg-blue-50 border-blue-200">
+          class="rounded-lg border text-card-foreground shadow-sm bg-blue-50 border-blue-200 fade-in-up animate-delay-200">
           <div data-replit-metadata="client/src/pages/landing.tsx:204:14" data-component-name="CardHeader"
             class="flex flex-col space-y-1.5 p-6">
             <div data-replit-metadata="client/src/pages/landing.tsx:205:16" data-component-name="div"
@@ -215,7 +246,7 @@
           </div>
         </div>
         <div data-replit-metadata="client/src/pages/landing.tsx:234:12" data-component-name="Card"
-          class="rounded-lg border text-card-foreground shadow-sm bg-blue-50 border-blue-200">
+          class="rounded-lg border text-card-foreground shadow-sm bg-blue-50 border-blue-200 fade-in-up animate-delay-300">
           <div data-replit-metadata="client/src/pages/landing.tsx:235:14" data-component-name="CardHeader"
             class="flex flex-col space-y-1.5 p-6">
             <div data-replit-metadata="client/src/pages/landing.tsx:236:16" data-component-name="div"
@@ -272,12 +303,12 @@
     <div data-replit-metadata="client/src/pages/landing.tsx:269:8" data-component-name="div"
       class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div data-replit-metadata="client/src/pages/landing.tsx:270:10" data-component-name="div"
-        class="text-center mb-16">
+        class="text-center mb-16 fade-in-up">
         <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">마드레가 제공하는 핵심 가치</h2>
         <p class="text-xl text-gray-600 max-w-3xl mx-auto">산모님 가정에 진정으로 필요한 서비스를 제공하겠습니다</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow duration-300">
+        <div class="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow duration-300 fade-in-up animate-delay-100">
           <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6"><svg
               xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -290,7 +321,7 @@
           <h3 class="text-2xl font-bold text-gray-900 mb-4">안전 우선의 가치</h3>
           <p class="text-gray-600 leading-relaxed break-keep">보건복지부 안전 수칙을 준수하며 산모와 신생아의 안전을 최우선으로 합니다.</p>
         </div>
-        <div class="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow duration-300">
+        <div class="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow duration-300 fade-in-up animate-delay-200">
           <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6"><svg
               xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -306,7 +337,7 @@
           <h3 class="text-2xl font-bold text-gray-900 mb-4">위생 청결의 가치</h3>
           <p class="text-gray-600 leading-relaxed break-keep">아기와 산모가 안심할 수 있도록 언제나 청결을 최우선으로 합니다.</p>
         </div>
-        <div class="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow duration-300">
+        <div class="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow duration-300 fade-in-up animate-delay-300">
           <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6"><svg
               xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -409,7 +440,7 @@
   </section>
   <!-- Government Voucher Section -->
   <section id="voucher" data-replit-metadata="client/src/pages/landing.tsx:395:6" data-component-name="section"
-    class="pt-40 pb-20 bg-white">
+    class="py-20 bg-white">
     <div data-replit-metadata="client/src/pages/landing.tsx:396:8" data-component-name="div"
       class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div data-replit-metadata="client/src/pages/landing.tsx:397:10" data-component-name="div"
@@ -535,15 +566,15 @@
     </div>
   </section>
   <!-- Contact Section -->
-  <section id="contact" class="pt-40 pb-20 bg-white">
+  <section id="contact" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
+      <div class="text-center mb-16 fade-in-up">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6" style="line-height: 1.4;">산모님을 위한<br><span
             class="text-blue-600">충분한 상담</span>을 받아보세요</h2>
         <p class="text-xl text-gray-600 mb-8">전문 상담사가 산모님의 상황에 맞는<br>최적의 케어 서비스를 안내해드립니다
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-        <div class="text-center">
+        <div class="text-center fade-in-up animate-delay-100">
           <a href="tel:031-376-9906">
             <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4"><svg
                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -561,7 +592,7 @@
             </div>
           </a>
         </div>
-        <div class="text-center">     
+        <div class="text-center fade-in-up animate-delay-200">     
             <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4"><svg
                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -575,7 +606,7 @@
               <a href="mailto:madre.korea@naver.com" class="underline">madre.korea@naver.com</a>
             </p>
         </div>
-        <div class="text-center">
+        <div class="text-center fade-in-up animate-delay-300">
           <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4"><svg
               xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
