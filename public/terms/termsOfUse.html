@@ -432,9 +432,10 @@
     }
 
     function closeDialog() {
-      if (dialogOverlay) {
-        dialogOverlay.classList.add('hidden');
-        document.body.style.overflow = '';
+      if (window.opener) {
+        window.close();
+      } else {
+        window.location.href = '../../index.html#footer';
       }
     }
 
