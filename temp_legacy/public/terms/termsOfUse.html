@@ -137,31 +137,6 @@
         padding-bottom: 1rem;
       }
     }
-
-    /* Embedded Mode Overrides */
-    body.is-embedded { 
-      background: white !important; 
-      padding: 0 !important; 
-      overflow: hidden !important;
-    }
-    body.is-embedded > button.no-print { display: none !important; }
-    body.is-embedded #dialog-overlay { 
-      position: static !important; 
-      display: block !important; 
-      background: none !important; 
-      backdrop-filter: none !important;
-      padding: 0 !important;
-    }
-    body.is-embedded .dialog-content {
-      width: 100% !important;
-      max-width: 100% !important;
-      max-height: 100vh !important;
-      height: 100vh !important;
-      border-radius: 0 !important;
-      box-shadow: none !important;
-      border: none !important;
-      animation: none !important;
-    }
   </style>
 </head>
 <body class="min-h-full bg-gradient-to-br from-blue-50 to-indigo-50 text-zinc-900 antialiased flex items-center justify-center p-4">
@@ -181,13 +156,11 @@
               <p class="text-blue-100 text-sm">시행일: <time datetime="2025-10-01">2025년 10월 1일</time> · 버전 1.0</p>
             </div>
             <div class="flex gap-2">
-              <button onclick="window.print()" class="no-print flex items-center gap-1.5 px-3 py-2 bg-white/10 hover:bg-white/20 rounded-xl transition-all border border-white/10 text-sm font-medium" title="인쇄/저장">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" /></svg>
-                <span>출력</span>
+              <button onclick="window.print()" class="no-print p-2 bg-white/10 hover:bg-white/20 rounded-xl transition-colors" title="인쇄/저장">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" /></svg>
               </button>
-              <button onclick="closeDialog()" class="no-print flex items-center gap-1.5 px-3 py-2 bg-white/10 hover:bg-white/20 rounded-xl transition-all border border-white/10 text-sm font-medium" title="닫기">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                <span>닫기</span>
+              <button onclick="closeDialog()" class="no-print p-2 bg-white/10 hover:bg-white/20 rounded-xl transition-colors" title="닫기">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
               </button>
             </div>
           </div>
@@ -202,7 +175,7 @@
           </div>
         </section>
 
-        <main class="flex-1 overflow-y-auto custom-scrollbar px-6 sm:px-8 py-6 prose-enhanced prose prose-zinc sm:prose-lg text-zinc-900">
+        <main class="flex-1 overflow-y-auto custom-scrollbar px-6 sm:px-8 py-6 prose-enhanced prose prose-zinc sm:prose-lg">
           <nav aria-label="목차" class="not-prose mb-2 rounded-2xl border-2 border-blue-100 bg-gradient-to-br from-blue-50 to-indigo-50 p-6 shadow-lg">
             <div class="flex items-center gap-2">
               <svg class="w-5 h-5 text-blue-600 mt-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -267,7 +240,7 @@
               <li>산모 회복 지원, 신생아 돌봄, 위생·수유·육아 정보 제공, 가사 일부 보조(아래 “서비스 범위표” 참조)</li>
               <li>의료행위, 전문 치료·간호, 위험 작업 등은 제공하지 않습니다.</li>
             </ul>
-            <div class="not-prose mt-4 rounded-2xl border border-zinc-200 bg-white shadow-sm overflow-x-auto">
+            <div class="not-prose mt-4 rounded-2xl border border-zinc-200 bg-white shadow-sm">
               <table class="w-full text-sm">
                 <thead class="bg-zinc-50">
                   <tr>
@@ -320,7 +293,7 @@
           <section id="article8">
             <h2>제8조 (취소·변경·환불)</h2>
             <p>이용자는 플랫폼 또는 고객센터를 통해 취소·변경을 요청할 수 있습니다. 환불 및 공제는 아래 기준을 따르며, 바우처는 지자체 지침을 우선 적용합니다.</p>
-            <div class="not-prose mt-3 overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm overflow-x-auto">
+            <div class="not-prose mt-3 overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
               <table class="w-full text-sm">
                 <thead class="bg-zinc-50">
                   <tr>
@@ -440,19 +413,16 @@
           <hr class="my-10 border-zinc-200">
           <section class="text-sm text-zinc-600">
             <p>© <strong>마드레</strong>. 모든 권리 보유.</p>
-            <p class="mt-1 text-zinc-500">본 이용규칙은 전자상거래법, 소비자분쟁해결기준 등 관계 법령을 고려하여 작성되었으며, 실제 운영정책·바우처 지침에 따라 세부 기준(요금, 취소·환불, 근무시간 등)을 최신화하여 게시하십시오.</p>
+            <p class="mt-1">본 이용규칙은 전자상거래법, 소비자분쟁해결기준 등 관계 법령을 고려하여 작성되었으며, 실제 운영정책·바우처 지침에 따라 세부 기준(요금, 취소·환불, 근무시간 등)을 최신화하여 게시하십시오.</p>
           </section>
         </main>
+
       </div>
     </div>
   </div>
 
   <script>
     const dialogOverlay = document.getElementById('dialog-overlay');
-
-    if (window.self !== window.top) {
-      document.body.classList.add('is-embedded');
-    }
 
     function openDialog() {
       if (dialogOverlay) {
@@ -462,10 +432,6 @@
     }
 
     function closeDialog() {
-      if (window.self !== window.top) {
-        window.parent.postMessage({ type: 'CLOSE_DIALOG' }, '*');
-        return;
-      }
       if (window.opener) {
         window.close();
       } else {
@@ -475,7 +441,7 @@
 
     window.addEventListener('load', () => {
       const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.get('open') === 'true' || window.self !== window.top) {
+      if (urlParams.get('open') === 'true') {
         openDialog();
       }
     });
