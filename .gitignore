@@ -1,3 +1,5 @@
+# Vite build output
+dist/
 # Logs
 logs
 *.log
