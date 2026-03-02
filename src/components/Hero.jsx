@@ -7,7 +7,7 @@ const shortsData = [
   },
   {
     id: 2,
-    url: "https://m.naver.com/shorts?mediaId=47AA7EE83C9B0460D6057F0CCCD89C1657BB&serviceType=CLIP&mediaType=VOD&recType=CLIP_SEARCH&panelType=vs_place&entryPoint=https%253A%252F%252Fpcmap.place.naver.com%252Fplace%252F2081409709%252Fhome%253FadditionalHeight%253D76%2526entry%253Dplt%2526fromPanelNum%253D1%2526locale%253Dko%2526svcName%253Dmap_pcv5%2526timestamp%253D202603021123%2526type%253Dlist&recId=%7B%22type%22%3A%22INFO_TAG%22%2C%22order%22%3A%22RELATED%22%2C%22query%22%3A%22place_2081409709%22%2C%22seedIndex%22%3A2%7D&enableReverse=true&clickNsc=mapv5.place&clickArea=cpr.clipvideo",
+    url: "https://m.naver.com/shorts/?mediaId=47AA7EE83C9B0460D6057F0CCCD89C1657BB&serviceType=CLIP&recType=CLIP_SEARCH&recId=%7B%22type%22%3A%22INFO_TAG%22%2C%22order%22%3A%22RELATED%22%2C%22query%22%3A%22place_2081409709%22%2C%22seedIndex%22%3A2%7D",
     thumb: "https://search.pstatic.net/common/?autoRotate=true&type=w278_sharpen&src=https%3A%2F%2Fclip-service-phinf.pstatic.net%2FMjAyNTEyMTlfMjky%2FMDAxNzY2MTQyNDIwOTk5.bw17080Toq5egO4ZkmYCEbQ2A74vIWvC2U3gN61Ygcgg.zmSdBL5f7LpGcD7cF1xP1nJVxnPTGEisPF6eqLcQX7wg.JPEG%2Fthumbnail-9EE5CEF6-F63B-4529-982C-B0E2F77C5341.jpg",
     video: "https://a02-g-smp-vod.akamaized.net/clip-home/c/read/v2/VOD_ALPHA/clip-home/47AA7EE83C9B0460D6057F0CCCD89C1657BB/trailer/1766142421339/e180e323-dcca-11f0-95f4-a0369ffb32cc.mp4?hdnts=exp%3D1772450622%7Eacl%3D%2Fclip-home%2Fc%2Fread%2Fv2%2FVOD_ALPHA%2Fclip-home%2F47AA7EE83C9B0460D6057F0CCCD89C1657BB%2F*%7Ehmac%3D86c545bef169b1372e0f6efc6c5d1fc072eb66833c185bb205925071ea927f83#tid=cKgGkiuKt351qer1Qaqxvw"
   }
