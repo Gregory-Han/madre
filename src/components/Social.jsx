@@ -52,7 +52,7 @@ export default function Social() {
                   <path d="m10 15 5-3-5-3z"></path>
                 </svg></a>
               <a href="https://www.instagram.com/madre.kr/" target="_blank" rel="noopener noreferrer"
-                className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full text-white hover:scale-110 transition-transform duration-300 shadow-lg">
+                className="flex items-center justify-center w-16 h-16 bg-linear-to-br from-purple-600 to-pink-600 rounded-full text-white hover:scale-110 transition-transform duration-300 shadow-lg">
                 <svg
                   xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
@@ -85,8 +85,8 @@ export default function Social() {
               {[...reviews, ...reviews, ...reviews].map((review, index) => (
                 <div 
                   key={`${review.id}-${index}`} 
-                  className="inline-block w-[300px] sm:w-[380px] lg:w-[450px] h-[250px] lg:h-[500px] bg-white border border-gray-200 shadow-sm 
-                      rounded-3xl mr-6 flex-shrink-0 p-6 overflow-hidden hover:border-blue-300 transition-all hover:shadow-md"
+                  className="inline-block w-75 sm:w-95 lg:w-112.5 h-62.5 lg:h-125 bg-white border border-gray-200 shadow-sm 
+                      rounded-3xl mr-6 shrink-0 p-6 overflow-hidden hover:border-blue-300 transition-all hover:shadow-md"
                 >
                   <a href={review.url} target="_blank" rel="noopener noreferrer" className="w-full h-full flex items-center justify-center">
                     <img src={review.img} alt={`고객 후기 ${review.id}`} className="max-w-full max-h-full object-contain" />

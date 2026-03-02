@@ -2,7 +2,7 @@ export default function Voucher() {
   return (
     <section id="voucher" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-r from-blue-600 to-blue-500 rounded-3xl p-4 md:p-8 text-white">
+        <div className="bg-linear-to-r from-blue-600 to-blue-500 rounded-3xl p-4 md:p-8 text-white">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-2xl md:text-4xl font-bold mb-6">산후도우미 지원제도 안내</h2>

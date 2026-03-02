@@ -15,7 +15,7 @@ const shortsData = [
 
 export default function Hero() {
   return (
-    <section id="home" className="py-20 bg-gradient-to-b from-blue-50 to-white overflow-hidden">
+    <section id="home" className="py-20 bg-linear-to-b from-blue-50 to-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
@@ -46,7 +46,7 @@ export default function Hero() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <a href="tel:031-376-9906"
-                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-white px-6 py-3 rounded-lg text-center">3분
+                className="bg-linear-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-white px-6 py-3 rounded-lg text-center">3분
                 상담 바로 시작</a>
               <a href="tel:031-376-9906"
                 className="border border-blue-600 text-blue-600 font-bold px-6 py-3 rounded-lg text-center flex items-center justify-center">
@@ -57,7 +57,7 @@ export default function Hero() {
             </div>
           </div>
           <div className="relative -ml-4 flex justify-center lg:justify-end">
-            <img src="/assets/madre_home_01.jpg" alt="마드레 신생아 케어 & 산후 조리 서비스" className="w-full max-w-[500px] h-auto lg:h-[500px] object-contain" />
+            <img src="/assets/madre_home_01.jpg" alt="마드레 신생아 케어 & 산후 조리 서비스" className="w-full max-w-125 h-auto lg:h-125 object-contain" />
           </div>
         </div>
 
@@ -78,7 +78,7 @@ export default function Hero() {
                   href={item.url} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="relative flex-shrink-0 w-[160px] sm:w-[220px] aspect-[9/16] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 snap-center group/item"
+                  className="relative shrink-0 w-40 sm:w-55 aspect-9/16 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 snap-center group/item"
                 >
                   {/* Video Background */}
                   <video 
@@ -92,7 +92,7 @@ export default function Hero() {
                   />
                   
                   {/* Overlay Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover/item:opacity-80 transition-opacity" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover/item:opacity-80 transition-opacity" />
                   
                   {/* Play Icon */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/item:opacity-100 transition-opacity">

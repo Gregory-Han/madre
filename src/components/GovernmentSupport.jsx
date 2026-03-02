@@ -16,17 +16,17 @@ export default function GovernmentSupport() {
         <div className="overflow-hidden">
           <div className="animate-scroll-horizontal whitespace-nowrap flex">
             {/* First set of logos */}
-            <div className="flex items-center space-x-6 mr-6 flex-shrink-0">
+            <div className="flex items-center space-x-6 mr-6 shrink-0">
               {logos.map((logo, index) => (
-                <div key={index} className="w-32 h-20 bg-white border border-gray-200 shadow-sm flex-shrink-0 flex items-center justify-center p-2 opacity-75">
+                <div key={index} className="w-32 h-20 bg-white border border-gray-200 shadow-sm shrink-0 flex items-center justify-center p-2 opacity-75">
                   <img src={logo.src} alt={logo.alt} className="w-full h-full object-contain" />
                 </div>
               ))}
             </div>
             {/* Duplicate set for seamless scrolling */}
-            <div className="flex items-center space-x-6 flex-shrink-0">
+            <div className="flex items-center space-x-6 shrink-0">
               {logos.map((logo, index) => (
-                <div key={`dup-${index}`} className="w-32 h-20 bg-white border border-gray-200 shadow-sm flex-shrink-0 flex items-center justify-center p-2 opacity-75">
+                <div key={`dup-${index}`} className="w-32 h-20 bg-white border border-gray-200 shadow-sm shrink-0 flex items-center justify-center p-2 opacity-75">
                   <img src={logo.src} alt={logo.alt} className="w-full h-full object-contain" />
                 </div>
               ))}
