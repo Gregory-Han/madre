@@ -3,17 +3,16 @@ const shortsData = [
     id: 1,
     url: "https://m.naver.com/shorts/?mediaId=71EC9853AF7A9B920FFD32DE8401DD720D7C&serviceType=CLIP&recType=CLIP_SEARCH&recId=%7B%22type%22%3A%22INFO_TAG%22%2C%22order%22%3A%22RELATED%22%2C%22query%22%3A%22place_2081409709%22%2C%22seedIndex%22%3A1%7D",
     thumb: "https://search.pstatic.net/common/?autoRotate=true&type=w278_sharpen&src=https%3A%2F%2Fclip-service-phinf.pstatic.net%2FMjAyNjAyMTdfNDQg%2FMDAxNzcxMzM0MDQ5OTc1.E7osoMXY6egGNOg-qs7kj5kq6Rq4N31FMTNh1COe1Pgg.N510Kfq30YJ3G4SoHgz3jYrkvc8_IXB1ASOxEGYsd2Yg.JPEG%2Fthumbnail-75BB4019-5619-4AAC-8C0C-3908FBDB759E.jpg",
-    video: "https://a02-g-smp-vod.akamaized.net/clip-home/c/read/v2/VOD_ALPHA/clip-home/71EC9853AF7A9B920FFD32DE8401DD720D7C/trailer/1771334050512/935057c2-0c02-11f1-9788-48df37e2c054.mp4?hdnts=exp%3D1772450622%7Eacl%3D%2Fclip-home%2Fc%2Fread%2Fv2%2FVOD_ALPHA%2Fclip-home%2F71EC9853AF7A9B920FFD32DE8401DD720D7C%2F*%7Ehmac%3Dd7160316ae3cb6c68204069342f10297b39e68d325e2ae9c7d8221116b57897f#tid=a9bUrrFw-Jv8oVeTxYFvjA"
+    video: "/assets/shorts/short_01.mp4"
   },
   {
     id: 2,
     url: "https://m.naver.com/shorts/?mediaId=47AA7EE83C9B0460D6057F0CCCD89C1657BB&serviceType=CLIP&recType=CLIP_SEARCH&recId=%7B%22type%22%3A%22INFO_TAG%22%2C%22order%22%3A%22RELATED%22%2C%22query%22%3A%22place_2081409709%22%2C%22seedIndex%22%3A2%7D",
     thumb: "https://search.pstatic.net/common/?autoRotate=true&type=w278_sharpen&src=https%3A%2F%2Fclip-service-phinf.pstatic.net%2FMjAyNTEyMTlfMjky%2FMDAxNzY2MTQyNDIwOTk5.bw17080Toq5egO4ZkmYCEbQ2A74vIWvC2U3gN61Ygcgg.zmSdBL5f7LpGcD7cF1xP1nJVxnPTGEisPF6eqLcQX7wg.JPEG%2Fthumbnail-9EE5CEF6-F63B-4529-982C-B0E2F77C5341.jpg",
-    video: "https://a02-g-smp-vod.akamaized.net/clip-home/c/read/v2/VOD_ALPHA/clip-home/47AA7EE83C9B0460D6057F0CCCD89C1657BB/trailer/1766142421339/e180e323-dcca-11f0-95f4-a0369ffb32cc.mp4?hdnts=exp%3D1772450622%7Eacl%3D%2Fclip-home%2Fc%2Fread%2Fv2%2FVOD_ALPHA%2Fclip-home%2F47AA7EE83C9B0460D6057F0CCCD89C1657BB%2F*%7Ehmac%3D86c545bef169b1372e0f6efc6c5d1fc072eb66833c185bb205925071ea927f83#tid=cKgGkiuKt351qer1Qaqxvw"
+    video: "/assets/shorts/short_02.mp4"
   }
 ];
 
-// TODO: 영상 재생 기능 추가 (모달 또는 별도 페이지)
 export default function Hero() {
   return (
     <section id="home" className="py-20 bg-linear-to-b from-blue-50 to-white overflow-hidden">
