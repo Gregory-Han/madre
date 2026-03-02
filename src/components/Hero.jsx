@@ -3,7 +3,7 @@ const shortsData = [
     id: 1,
     url: "https://m.naver.com/shorts/?mediaId=71EC9853AF7A9B920FFD32DE8401DD720D7C&serviceType=CLIP&recType=CLIP_SEARCH&recId=%7B%22type%22%3A%22INFO_TAG%22%2C%22order%22%3A%22RELATED%22%2C%22query%22%3A%22place_2081409709%22%2C%22seedIndex%22%3A1%7D",
     thumb: "https://search.pstatic.net/common/?autoRotate=true&type=w278_sharpen&src=https%3A%2F%2Fclip-service-phinf.pstatic.net%2FMjAyNjAyMTdfNDQg%2FMDAxNzcxMzM0MDQ5OTc1.E7osoMXY6egGNOg-qs7kj5kq6Rq4N31FMTNh1COe1Pgg.N510Kfq30YJ3G4SoHgz3jYrkvc8_IXB1ASOxEGYsd2Yg.JPEG%2Fthumbnail-75BB4019-5619-4AAC-8C0C-3908FBDB759E.jpg",
-    video: "/assets/shorts/short_01.mp43"
+    video: "/assets/shorts/short_01.mp4"
   },
   {
     id: 2,
