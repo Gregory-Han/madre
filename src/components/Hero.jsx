@@ -13,6 +13,7 @@ const shortsData = [
   }
 ];
 
+// TODO: 영상 재생 기능 추가 (모달 또는 별도 페이지)
 export default function Hero() {
   return (
     <section id="home" className="py-20 bg-linear-to-b from-blue-50 to-white overflow-hidden">
